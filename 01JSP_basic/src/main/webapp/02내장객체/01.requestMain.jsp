@@ -19,6 +19,7 @@
 	www.naver.com - 도메인 : ip, port를 통해 웹 서버를 찾아간다. 
 	경로 			  - 파일 정보, 매핑 정보 -->
 <a href="01.requestWebInfo.jsp?eng=hello&han=안녕">GET 방식 요청</a>
+
 <form action="01.requestWebInfo.jsp" method="post">
 	영어: <input type="text" name="eng" value="Bye"><br>
 	한글: <input type="text" name="han" value="잘가"><br>

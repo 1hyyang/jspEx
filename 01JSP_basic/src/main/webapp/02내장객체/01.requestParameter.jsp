@@ -17,9 +17,8 @@
 	String sex = request.getParameter("sex");
 	// 체크박스는 여러 개가 선택될 수 있기 때문에 배열 형태로 받아서 처리해야 한다.
 	String[] favo = request.getParameterValues("favo");
+	// out.print(Arrays.toString(favo));	
 	String intro = request.getParameter("intro");
-	String favoStr = "";
-	out.print(Arrays.toString(favo));	
 %>
 <ul>
 	<li>아이디 : <%= id %></li>
