@@ -18,17 +18,17 @@
 	http://	 	  - 프로토콜 : 통신 규약
 	www.naver.com - 도메인 : ip, port를 통해 웹 서버를 찾아간다. 
 	경로 			  - 파일 정보, 매핑 정보 -->
-<a href="01RequestWebInfo.jsp?eng=hello&han=안녕">GET 방식 요청</a>
+<a href="01RequestWebInfo.jsp?eng=hello&kor=안녕">GET 방식 요청</a>
 
 <!-- form : 서버에 페이지를 요청 -->
 <form action="01RequestWebInfo.jsp" method="post">
-	영어: <input type="text" name="eng" value="Bye"><br>
-	한글: <input type="text" name="han" value="잘가"><br>
+	영어: <input type="text" name="eng" value="bye"><br>
+	한글: <input type="text" name="kor" value="잘가"><br>
 	<input type="submit" value="post전송">
 </form>
 
 <h2>2. 클라이언트의 요청 매개 변수 읽기</h2>
-<form method="post" action="01RequestParameter.jsp">
+<form action="01RequestParameter.jsp" method="post">
 	아이디: <input type="text" name="id" value=""><br>
 	성별:
 	<input type="radio" name="sex" value="man">남자

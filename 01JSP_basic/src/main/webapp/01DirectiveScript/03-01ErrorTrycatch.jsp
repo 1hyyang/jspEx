@@ -11,7 +11,6 @@
 	try{
 		// 사용자의 요청을 담고 있는 객체
 		int age = Integer.parseInt(request.getParameter("age"));
-		
 		out.print("당신의 나이는 " + age + "세 입니다.");
 	} catch(Exception e){
 		// out.print("오류메시지: " + e.getMessage());

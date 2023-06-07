@@ -25,7 +25,7 @@
 	
 	autoFlush
 		true	: 버퍼가 차면 자동 전송
-		false	: 버퍼가 차면 예외 Exception 발생으로 실행 중지
+		false	: 버퍼가 차면 예외exception 발생으로 실행 중지
  -->
  
 <%
