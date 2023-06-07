@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>error_trycatch</title>
+<title>error trycatch</title>
 </head>
 <body>
 <%	

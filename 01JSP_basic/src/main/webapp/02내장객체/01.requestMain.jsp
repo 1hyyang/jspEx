@@ -13,9 +13,10 @@
 
 <!-- 404 : 페이지를 찾을 수 없음 
 	서버에 파일이 없는 경우 또는 경로가 일치하지 않는 경우 
-	URL 경로를 확인해 보아야 한다. -->
+	URL 경로를 확인해 보아야 한다. 
+	URL로 호출 - get 방식으로 호출 -->
 <a href="01.request_webInfo.jsp?eng-hello&han=안녕">GET 방식 요청</a>
-<form action="01.request_webInfo.jsp" method="post">
+<form action="01.requestWebInfo.jsp" method="post">
 	영어: <input type="text" name="eng" value="Bye"><br>
 	한글: <input type="text" name="han" value="잘가"><br>
 	<input type="submit" value="post전송">

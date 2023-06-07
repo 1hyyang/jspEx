@@ -1,7 +1,7 @@
 <!-- errorPage : 오류 발생시 보여줄 페이지를 지정 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    errorPage = "03-02.errorpage.jsp"%>
+    errorPage = "03-02.errorPage.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>

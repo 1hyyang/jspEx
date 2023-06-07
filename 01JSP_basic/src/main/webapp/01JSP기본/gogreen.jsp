@@ -6,12 +6,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go green</title>
-    <link rel="stylesheet" href="css/gogreen_style.css">
+    <title>GO GREEN</title>
+    <link rel="stylesheet" href="css/gogreen.css">
 </head>
 <body> 
     <div class="wrap">
-        <%@ include file="gogreen_header.jsp" %>        
+        <%@ include file="gogreenHeader.jsp" %>        
         <main>
             <aside id='leftside'>
 
@@ -52,7 +52,7 @@
                 </div>
             </aside>
         </main>        
-        <%@ include file="gogreen_footer.jsp" %>
+        <%@ include file="gogreenFooter.jsp" %>
     </div>
 </body>
 </html>
