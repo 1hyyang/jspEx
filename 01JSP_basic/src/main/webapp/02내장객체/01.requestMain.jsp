@@ -16,7 +16,7 @@
 	URL 경로를 확인해 보아야 한다. 
 	URL로 호출 	  - get 방식으로 호출 
 	http://	 	  - 프로토콜 : 통신 규약
-	www.naver.com - 도메인 : ip,port를 통해 웹 서버를 찾아간다. 
+	www.naver.com - 도메인 : ip, port를 통해 웹 서버를 찾아간다. 
 	경로 			  - 파일 정보, 매핑 정보 -->
 <a href="01.requestWebInfo.jsp?eng=hello&han=안녕">GET 방식 요청</a>
 <form action="01.requestWebInfo.jsp" method="post">
