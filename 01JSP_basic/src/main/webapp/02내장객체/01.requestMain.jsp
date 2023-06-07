@@ -14,8 +14,11 @@
 <!-- 404 : 페이지를 찾을 수 없음 
 	서버에 파일이 없는 경우 또는 경로가 일치하지 않는 경우 
 	URL 경로를 확인해 보아야 한다. 
-	URL로 호출 - get 방식으로 호출 -->
-<a href="01.request_webInfo.jsp?eng-hello&han=안녕">GET 방식 요청</a>
+	URL로 호출 	  - get 방식으로 호출 
+	http://	 	  - 프로토콜 : 통신 규약
+	www.naver.com - 도메인 : ip,port를 통해 웹 서버를 찾아간다. 
+	경로 			  - 파일 정보, 매핑 정보 -->
+<a href="01.requestWebInfo.jsp?eng=hello&han=안녕">GET 방식 요청</a>
 <form action="01.requestWebInfo.jsp" method="post">
 	영어: <input type="text" name="eng" value="Bye"><br>
 	한글: <input type="text" name="han" value="잘가"><br>
@@ -24,7 +27,7 @@
 
 <h2>2. 클라이언트의 요청 매개 변수 읽기</h2>
 <!-- 다양한 input 태그를 사용하여 서버에 값을 전달해 봅시다 -->
-<form method="post" action="01.request_parameter.jsp">
+<form method="post" action="01.requestParameter.jsp">
 	아이디 : <input type="text" name="id" value=""><br>
 	성별 :
 	<input type="radio" name="sex" value="man">남자
@@ -37,5 +40,8 @@
 	<textarea name="intro" cols="30" rows="4"></textarea><br>
 	<input type="submit" value="전송하기">
 </form>
+
+<h2>3. HTTP 요청 헤더 정보 읽기</h2>
+<a href="01.requestHeader.jsp">요청 헤더 정보 읽기</a>
 </body>
 </html>
