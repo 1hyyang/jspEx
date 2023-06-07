@@ -49,7 +49,6 @@
     background-color: green;
     text-align: center;
     line-height: 30px;
-    color: aliceblue;
 }
 .wrap nav ul a:hover{
     background-color: darkgreen;
@@ -88,12 +87,10 @@ main{
 #rightside .loginbox{
     width: 250px;
     height: 80px;
-    background-color: aqua;
 }
 #rightside .loginbox #login{
     width: 150px;
     height: 80px;
-    background-color: red;
     float: left;
 }
 #rightside .loginbox #login input{
@@ -109,7 +106,6 @@ main{
     text-align: center;
 }
 #rightside #info a:hover{
-    color: aliceblue;
 }
 
 #rightside .side2{

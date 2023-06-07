@@ -27,20 +27,40 @@
 
             <aside id='rightside'>
                 <div class='side1'>
+                	<!-- 로그인 실패 -->
+                	<%
+                		String loginErr = request.getParameter("loginErr");
+                		if("Y".equals(loginErr)){
+                			out.print("<script>alert('아이디/비밀번호를 확인하세요')</script>");
+                		}
+                	%>
+                	<!-- 로그인 성공  -->
+                    <%
+						String name = request.getParameter("name");
+                    	if(name!=null && !name.equals("")){
+                    		out.print(name + "님 환영합니다.");
+                    	} else{
+                    		// 로그인에 성공하면 폼이 보이지 않도록 한다.
+					%>
                     <div class='loginbox'>
-                        <div id='login'>
-                            <input type="text" name="userid" id="userpw" placeholder='ID를 입력해주세요.'>
-                            <input type="password" name="userpw" id="userpw" placeholder='PW를 입력해주세요.'>
-                        </div>
-                        <div id='button'>
-                        <input type="submit" value="로그인">
-                        </div>
+                       	<form action="gogreenLogin.jsp" method="post">
+                        	<div id='login'>
+	                            <input type="text" name="userid" id="userid" placeholder='ID를 입력해주세요.'>
+	                            <input type="password" name="userpw" id="userpw" placeholder='PW를 입력해주세요.'>             	
+                        	</div>
+                        	<div id='button'>
+                        		<input type="submit" value="로그인">
+                        	</div>
+                        </form>
                     </div>
                     <div id='info'>
                         <a href="">회원가입</a>
                         <a href="">ID찾기</a>
                         <a href="">PW찾기</a>
                     </div>
+	                <%
+	                    }
+	                %>
                 </div>
 
                 <div class='side2'>

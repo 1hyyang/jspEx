@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>JSP에서 JAVA 코드를 작성하는 방법</h1>
-<h2>JSP Script Elements</h2>
+<h2>JSP script elements</h2>
 <ul>
 	<li>선언부	: 변수, 메소드를 선언 (전역 변수, 메소드)</li>
 	<li>스크립틀릿	: 자바 코드를 작성 (지역 변수)</li>

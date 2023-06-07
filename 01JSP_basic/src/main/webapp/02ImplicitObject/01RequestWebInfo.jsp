@@ -18,9 +18,9 @@
     <li>클라이언트 IP 주소 : <%= request.getRemoteAddr() %></li>
     <li>쿼리스트링 : <%= request.getQueryString() %></li>
     <!-- 
-    	<input type='text' name='id' value='123'>
-    	request.getParameter("id"); // 123 반환
-    	value속성값 = request.getParameter("name속성값")    
+    	<input type='text' name='id' value='abc'>
+    	request.getParameter("id"); // abc 반환
+    	name 속성의 값을 매개값으로 넘겨 주면 value 속성의 값을 반환한다.    
     -->
     <li>전송된 값 1 : <%= request.getParameter("eng") %></li>
     <li>전송된 값 2 : <%= request.getParameter("han") %></li>

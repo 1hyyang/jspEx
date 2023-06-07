@@ -16,9 +16,9 @@
 	} catch(Exception e){
 		// out.print("오류메시지: " + e.getMessage());
 %>
-		<h1>오류가 발생하였습니다.</h1>
-		<p>관리자에게 문의하세요.</p>
-		오류 메시지: <%= e.getMessage() %>
+<h1>오류가 발생하였습니다.</h1>
+<p>관리자에게 문의하세요.</p>
+오류 메시지: <%= e.getMessage() %>
 <%	
 	}		
 %>

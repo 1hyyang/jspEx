@@ -18,22 +18,22 @@
 	http://	 	  - 프로토콜 : 통신 규약
 	www.naver.com - 도메인 : ip, port를 통해 웹 서버를 찾아간다. 
 	경로 			  - 파일 정보, 매핑 정보 -->
-<a href="01.requestWebInfo.jsp?eng=hello&han=안녕">GET 방식 요청</a>
+<a href="01RequestWebInfo.jsp?eng=hello&han=안녕">GET 방식 요청</a>
 
-<form action="01.requestWebInfo.jsp" method="post">
+<!-- form : 서버에 페이지를 요청 -->
+<form action="01RequestWebInfo.jsp" method="post">
 	영어: <input type="text" name="eng" value="Bye"><br>
 	한글: <input type="text" name="han" value="잘가"><br>
 	<input type="submit" value="post전송">
 </form>
 
 <h2>2. 클라이언트의 요청 매개 변수 읽기</h2>
-<!-- 다양한 input 태그를 사용하여 서버에 값을 전달해 봅시다 -->
-<form method="post" action="01.requestParameter.jsp">
-	아이디 : <input type="text" name="id" value=""><br>
-	성별 :
+<form method="post" action="01RequestParameter.jsp">
+	아이디: <input type="text" name="id" value=""><br>
+	성별:
 	<input type="radio" name="sex" value="man">남자
 	<input type="radio" name="sex" value="woman" checked="checked">여자<br>
-	관심사항 :
+	관심사항:
 	<input type="checkbox" name="favo" value="eco">경제
 	<input type="checkbox" name="favo" value="pol" checked="checked">정치
 	<input type="checkbox" name="favo" value="ent">연예<br>
@@ -43,6 +43,6 @@
 </form>
 
 <h2>3. HTTP 요청 헤더 정보 읽기</h2>
-<a href="01.requestHeader.jsp">요청 헤더 정보 읽기</a>
+<a href="01RequestHeader.jsp">요청 헤더 정보 읽기</a>
 </body>
 </html>

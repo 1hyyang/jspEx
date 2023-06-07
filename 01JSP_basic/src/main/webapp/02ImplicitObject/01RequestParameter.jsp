@@ -13,6 +13,8 @@
 	// 한글 깨짐 처리 -> web.xml의 설정파일에서 일괄적으로 설정
 	// request.setCharacterEncoding("UTF-8");
 	
+	// value속성값 = request.getParameter("name속성값")
+	// name 속성의 값을 매개값으로 넘겨 주면 value 속성의 값을 반환한다.
 	String id = request.getParameter("id");
 	String sex = request.getParameter("sex");
 	// 체크박스는 여러 개가 선택될 수 있기 때문에 배열 형태로 받아서 처리해야 한다.
@@ -21,11 +23,11 @@
 	String intro = request.getParameter("intro");
 %>
 <ul>
-	<li>아이디 : <%= id %></li>
-	<li>성별 : <%= sex %></li>
-	<li>관심사항 : <%= Arrays.toString(favo) %></li>	
+	<li>아이디: <%= id %></li>
+	<li>성별: <%= sex %></li>
+	<li>관심사항: <%= Arrays.toString(favo) %></li>	
 	<!-- 줄바꿈처리 -->
-	<li>자기소개 : <%= intro.replace("\r\n", "<br>") %> </li>	
+	<li>자기소개: <%= intro.replace("\r\n", "<br>") %> </li>	
 </ul>
 </body>
 </html>
