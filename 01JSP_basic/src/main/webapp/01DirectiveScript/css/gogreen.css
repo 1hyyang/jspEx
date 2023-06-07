@@ -106,6 +106,7 @@ main{
     text-align: center;
 }
 #rightside #info a:hover{
+	color: #ccc;
 }
 
 #rightside .side2{

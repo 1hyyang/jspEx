@@ -27,21 +27,20 @@
 
             <aside id='rightside'>
                 <div class='side1'>
-                	<!-- 로그인 실패 -->
-                	<%
-                		String loginErr = request.getParameter("loginErr");
-                		if("Y".equals(loginErr)){
-                			out.print("<script>alert('아이디/비밀번호를 확인하세요')</script>");
-                		}
-                	%>
-                	<!-- 로그인 성공  -->
-                    <%
-						String name = request.getParameter("name");
-                    	if(name!=null && !name.equals("")){
-                    		out.print(name + "님 환영합니다.");
-                    	} else{
-                    		// 로그인에 성공하면 폼이 보이지 않도록 한다.
-					%>
+               	<%
+               		// 로그인 실패
+               		String loginErr = request.getParameter("loginErr");
+               		if("Y".equals(loginErr)){
+               			out.print("<script>alert('아이디/비밀번호를 확인하세요.')</script>");
+               		}
+               	
+                   	// 로그인 성공
+					String name = request.getParameter("name");
+                   	if(name!=null && !name.equals("")){
+                   		out.print(name + "님 환영합니다.");
+                   	} else{
+                   		// 로그인에 성공하면 폼이 보이지 않도록 한다.
+				%>
                     <div class='loginbox'>
                        	<form action="gogreenLogin.jsp" method="post">
                         	<div id='login'>
@@ -58,9 +57,9 @@
                         <a href="">ID찾기</a>
                         <a href="">PW찾기</a>
                     </div>
-	                <%
-	                    }
-	                %>
+                <%
+                    }
+                %>
                 </div>
 
                 <div class='side2'>
