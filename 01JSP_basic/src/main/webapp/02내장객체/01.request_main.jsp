@@ -24,16 +24,16 @@
 <h2>2. 클라이언트의 요청 매개 변수 읽기</h2>
 <!-- 다양한 input 태그를 사용하여 서버에 값을 전달해 봅시다 -->
 <form method="post" action="01.request_parameter.jsp">
-	아이디 : <input type="text" name="id" value=""></br>
+	아이디 : <input type="text" name="id" value=""><br>
 	성별 :
 	<input type="radio" name="sex" value="man">남자
-	<input type="radio" name="sex" value="woman" checked="checked">여자</br>
+	<input type="radio" name="sex" value="woman" checked="checked">여자<br>
 	관심사항 :
 	<input type="checkbox" name="favo" value="eco">경제
 	<input type="checkbox" name="favo" value="pol" checked="checked">정치
-	<input type="checkbox" name="favo" value="ent">연예</br>
+	<input type="checkbox" name="favo" value="ent">연예<br>
 	자기소개:
-	<textarea name="intro" cols="30" rows="4"></textarea></br>
+	<textarea name="intro" cols="30" rows="4"></textarea><br>
 	<input type="submit" value="전송하기">
 </form>
 </body>
