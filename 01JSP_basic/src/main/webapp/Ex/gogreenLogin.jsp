@@ -12,7 +12,11 @@
 	String pw = request.getParameter("userpw");
 	
 	if("abc".equals(id) && "123".equals(pw)){
-		response.sendRedirect("gogreen.jsp?name=" + id);
+		// response.sendRedirect("gogreen.jsp?name=" + id);
+		
+		// 세션 영역에 Id를 저장
+		session.setAttribute("id", id);
+		response.sendRedirect("gogreen.jsp");
 	} else{
 		response.sendRedirect("gogreen.jsp?loginErr=Y");
 	}

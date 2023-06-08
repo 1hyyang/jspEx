@@ -5,7 +5,7 @@
 <body>
 <h2>1. 로그인 폼</h2>
 <form action="02ResponseLogin.jsp" method="post">
-    아이디: <input type="text" name="user_id" required /><br />
+    아이디: <input type="text" name="user_id" required value="<%= request.getParameter("user_id") %>"/><br />
     패스워드: <input type="text" name="user_pwd" required /><br />
     <input type="submit" value="로그인" />
 </form>

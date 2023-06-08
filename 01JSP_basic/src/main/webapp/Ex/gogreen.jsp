@@ -35,10 +35,24 @@
                		}
                	
                    	// 로그인 성공
+                   	/*
 					String name = request.getParameter("name");
-                   	if(name!=null && !name.equals("")){
+					if(name!=null && !name.equals("")){
                    		out.print(name + "님 환영합니다.");
-                   	} else{
+                   	}
+					*/
+                   	
+					String loginId = "";
+					if(session.getAttribute("id")!=null){
+						loginId = (String)session.getAttribute("id");
+					}
+					if(loginId!=null && !loginId.equals("")){
+						out.print(loginId + "님 환영합니다.");
+				%>
+				<button onclick="location.href='gogreenLogout.jsp'">로그아웃</button>
+				<%		
+					}
+                   	 else{
                    		// 로그인에 성공하면 폼이 보이지 않도록 한다.
 				%>
                     <div class='loginbox'>
