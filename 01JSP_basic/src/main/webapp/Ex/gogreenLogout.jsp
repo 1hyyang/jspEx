@@ -12,6 +12,7 @@
 	session.invalidate();
 	// 세션 아이디 새로 발급
 	request.getSession(true);
+	// 페이지 이동
 	response.sendRedirect("gogreen.jsp");
 %>
 </body>

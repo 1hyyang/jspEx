@@ -42,4 +42,5 @@ public class CookieManager {
 	public static void deleteCookie(HttpServletResponse response, String cookieName) {
 		makeCookie(response, cookieName, "", 0);
 	}
+	
 } 

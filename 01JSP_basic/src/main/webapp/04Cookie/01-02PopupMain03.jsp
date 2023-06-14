@@ -25,7 +25,6 @@
 			popup.style.display = "none";
 			var chkVal = document.querySelector("input[id=inactiveToday]:checked");
 			if(chkVal!==null && chkVal.value==1){
-				console.log("쿠키");
 				// JavaScript를 활용한 쿠키 생성
 				// JavaScript에서는 새로고침해야 생성된 쿠키를 확인할 수 있다. (개발자 도구)
 				const date = new Date();

@@ -9,8 +9,8 @@
 </head>
 <body>
 <%
-	String id = request.getParameter("userid");
-	String pw = request.getParameter("userpw");
+	String userid = request.getParameter("userid");
+	String userpw = request.getParameter("userpw");
 	
 	// 아이디저장 체크박스
 	String saveYN = request.getParameter("savecheck");
@@ -22,11 +22,11 @@
 		cookie.setMaxAge(60*60);
 		response.addCookie(cookie);
 		*/
-		CookieManager.makeCookie(response, "userid", id, 60*60);
+		CookieManager.makeCookie(response, "userid", userid, 60*60);
 	}
 	
-	if("abc".equals(id) && "123".equals(pw)){		
-		response.sendRedirect("01-01Login.jsp?name="+id);
+	if("abc".equals(userid) && "123".equals(userpw)){		
+		response.sendRedirect("01-01Login.jsp?name=" + userid);
 	} else {
 		out.print("로그인 실패");
 	}

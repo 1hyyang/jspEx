@@ -21,7 +21,6 @@
 <h2>페이지가 이동된 후 session 영역의 속성 읽기</h2>
 <%
 	session.setAttribute("person", new Person("콩지", 20));
-
 	ArrayList<String> list = new ArrayList<String>();
 	list.add("list");
 	list.add("set");

@@ -45,12 +45,12 @@
                   	}
 				*/
                   	
-				String loginId = "";
+				String loginid = "";
 				if(session.getAttribute("id")!=null){
-					loginId = (String)session.getAttribute("id");
+					loginid = (String)session.getAttribute("id");
 				}
-				if(loginId!=null && !loginId.equals("")){
-					out.print(loginId + "님 환영합니다.");
+				if(loginid!=null && !loginid.equals("")){
+					out.print(loginid + "님 환영합니다.");
 			%>
 			<button onclick="location.href='gogreenLogout.jsp'">로그아웃</button>
 			<%		
