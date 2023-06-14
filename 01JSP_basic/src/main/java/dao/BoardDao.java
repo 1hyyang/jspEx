@@ -18,7 +18,7 @@ public class BoardDao {
 	
 	public List<Board> getList() {
 		List<Board> boardlist = new ArrayList<Board>();		
-		String sql = "SELECT * FROM BOARD ORDER BY NUM";
+		String sql = "SELECT * FROM BOARD ORDER BY NUM DESC";
 		try(Connection conn = ConnectionPool.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);) {
 			ResultSet rs = pstmt.executeQuery();
