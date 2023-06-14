@@ -24,7 +24,7 @@
 		if(typeof closeBtn!="undefined"){
 			// 닫기 버튼을 클릭했을 때 이벤트 처리
 			closeBtn.addEventListener("click", function(){
-				// 체크박스에 체크가 되었다면 popFrm 폼을 submit한다. -> 01-02PopupCookie.jsp 요청
+				// 체크박스에 체크가 되었다면 popFrm 폼을 submit한다. -> 02PopupCookie.jsp 요청
 				if(inactiveToday.checked){
 					popFrm.submit();
 				// 체크가 되지 않았다면 팝업창을 그냥 닫는다.
@@ -47,7 +47,7 @@
 <div id="popup">
     <h2 align="center">공지사항 팝업입니다.</h2>
     <div align="right">
-	    <form name="popFrm" action="01-02PopupCookie.jsp">
+	    <form name="popFrm" action="02PopupCookie.jsp">
 	        <input type="checkbox" id="inactiveToday" value="1" /> 
 	        하루 동안 열지 않음
 	        <input type="button" value="닫기" id="closeBtn" /> 

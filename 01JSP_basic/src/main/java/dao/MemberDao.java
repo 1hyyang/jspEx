@@ -19,7 +19,6 @@ public class MemberDao {
 	 * 아이디/비밀번호가 일치하는 회원을 조회합니다.
 	 * - 회원이 존재하는 경우 Member 객체를 반환합니다.
 	 * - 회원이 존재하지 않는 경우 null을 반환합니다.
-	 * 
 	 * @param id
 	 * @param pw
 	 * @return

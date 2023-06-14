@@ -28,14 +28,14 @@
 				// 쿠키 생성 요청
 				console.log("쿠키 생성 요청")
 				// 지정된 URL에 http 요청을 보내고 응답을 받아온다.
-				fetch("01-02PopupCookie.jsp")
+				fetch("02PopupCookie.jsp")
 				// 요청 결과가 성공이면
 		        // 응답 객체 data를 받아 와서 data.json()을 호출한다.
 		        // data.json() : json 형식의 문자열을 자바스크립트 객체로 파싱
 				.then(data => data.json())
 				// 파싱된 데이터를 jsObj 변수에 전달 받는다.
 				.then(jsObj => {
-					console.log("01-02PopupCookie.jsp 호출");
+					console.log("02PopupCookie.jsp 호출");
 				})
 			}
 		});

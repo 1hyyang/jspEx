@@ -46,7 +46,7 @@
 %>
 
 <h2>2. 페이지 이동 후 쿠키 값 확인하기</h2>
-<a href="01-00CookieResult.jsp">쿠키 값 확인하기</a>
+<a href="00CookieResult.jsp">쿠키 값 확인하기</a>
 
 </body>
 </html>

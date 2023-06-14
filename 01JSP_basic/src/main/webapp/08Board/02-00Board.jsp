@@ -10,24 +10,23 @@
 <title>게시판</title>
 </head>
 <body>
-<jsp:include page="01-00Link.jsp"/>
+<jsp:include page="00Link.jsp"/>
 <h2>목록보기</h2>
-<%
-	BoardDao dao = new BoardDao();
-	List<Board> boardlist = dao.getList();
-	
-	// 총 건수 출력
-	int totalcount = dao.getTotalCount();
-%>
-총 건수: <%= totalcount %>
-
 <%
 	String searchfield = request.getParameter("searchfield");
 	String searchword = request.getParameter("searchword");
+	
+	BoardDao dao = new BoardDao();
+	List<Board> boardlist = dao.getList(searchfield, searchword);
+	
+	// 총 건수 출력
+	int totalcount = dao.getTotalCount(searchfield, searchword);
 %>
+총 건수: <%= totalcount %>
+
 <!-- 검색 -->
 <form method="get">
-	<table border="1" width="90%">
+	<table border="1" style="width: 90%">
 		<tr>
 			<td align="center">
 				<select name="searchfield">
@@ -41,8 +40,8 @@
 	</table>
 </form>
 
-<!-- 게시물 -->
-<table border="1" width="90%">
+<!-- 게시글 목록 -->
+<table border="1" style="width: 90%">
 	<tr> 
 		<th>번호</th> 
 		<th>제목</th> 
@@ -62,7 +61,7 @@
 %>
 	<tr> 
 		<td><%= board.getNum() %></td> 
-		<td><%= board.getTitle() %></td> 
+		<td><a href="02-02View.jsp?num=<%= board.getNum() %>"><%= board.getTitle() %></a></td> 
 		<td><%= board.getId() %></td> 
 		<td><%= board.getPostdate() %></td> 
 		<td><%= board.getVisitcount() %></td>
@@ -71,17 +70,21 @@
 		}
 	}
 %>
+</table>
 
 <!-- 글쓰기 -->
+<%
+	if(session.getAttribute("userid")!=null){
+%>
+<table border="1" style="width: 90%">
+	<tr>
+		<td align="right">
+			<input type="button" onclick="location.href='02-01Write.jsp'" value="글쓰기">
+		</td>
+	</tr>
 </table>
-<form method="get">
-	<table border="1" width="90%">
-		<tr>
-			<td align="right">
-				<input type="submit" value="글쓰기">
-			</td>
-		</tr>
-	</table>
-</form>
+<%
+	}
+%>
 </body>
 </html>

@@ -1,3 +1,5 @@
+<%@page import="dto.Member"%>
+<%@page import="dao.MemberDao"%>
 <%@page import="util.CookieManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -5,12 +7,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>login-아이디 저장</title>
+<title>login</title>
 </head>
 <body>
 <%
 	String userid = request.getParameter("userid");
-	String userpw = request.getParameter("userpw");
+	String userpw = request.getParameter("userpw");	
+	
+	MemberDao dao = new MemberDao();
+	Member member = dao.login(userid, userpw);
 	
 	// 아이디저장 체크박스
 	String saveYN = request.getParameter("savecheck");
@@ -18,15 +23,15 @@
 	if("Y".equals(saveYN)){
 		// 아이디 값을 저장한 쿠키를 생성하고 응답 객체에 추가한다.
 		/*
-		Cookie cookie = new Cookie("userid", id);
+		Cookie cookie = new Cookie("userid", userid);
 		cookie.setMaxAge(60*60);
 		response.addCookie(cookie);
 		*/
 		CookieManager.makeCookie(response, "userid", userid, 60*60);
 	}
 	
-	if("abc".equals(userid) && "123".equals(userpw)){		
-		response.sendRedirect("01-01Login.jsp?name=" + userid);
+	if(member!=null && !"".equals(member.getName())){
+		response.sendRedirect("01Login.jsp?name=" + userid);
 	} else {
 		out.print("로그인 실패");
 	}

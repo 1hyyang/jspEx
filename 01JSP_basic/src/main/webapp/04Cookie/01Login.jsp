@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form action="01-01LoginAction.jsp" method="post">
+<form action="01LoginAction.jsp" method="post">
 <% 
 	// 쿠키에 저장된 아이디 값을 아이디 창에 출력하기
 	// 요청 헤더로부터 쿠키를 받아 온 후 아이디 값을 담고 있는 쿠키를 찾는다.
