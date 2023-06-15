@@ -40,7 +40,7 @@
 	</tr>
 	<tr>
 		<td>내용</td>
-		<td colspan="3"><%= board.getContent() %></td>
+		<td colspan="3"><%= board.getContent().replace("\r\n", "<br>") %></td>
 	</tr>
 	<tr style="text-align: center;">
 		<td colspan="4">
@@ -48,7 +48,7 @@
 			<%
 				if(session.getAttribute("userid")!=null && board.getId().equals(session.getAttribute("userid"))){
 			%>
-			<button type="button" onclick="location.href='01-02Edit.jsp?num=<%= board.getNum() %>'">수정하기</button>
+			<button type="button" onclick="location.href='02-03Edit.jsp?num=<%= board.getNum() %>'">수정하기</button>
 			<button type="button" onclick="deletePost()">삭제하기</button>			
 			<%		
 				}
@@ -60,7 +60,7 @@
 	function deletePost(){
 		var res = confirm("삭제하시겠습니까?");
 		if(res){
-			location.href="01-02DeleteProcess.jsp?num=<%= board.getNum() %>"
+			location.href="02-04DeleteProcess.jsp?num=<%= board.getNum() %>"
 		}
 	}
 </script>		

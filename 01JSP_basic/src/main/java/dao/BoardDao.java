@@ -88,7 +88,7 @@ public class BoardDao {
 	}
 	
 	/**
-	 * 게시글을 등록합니다.
+	 * 게시물을 등록합니다.
 	 * @return
 	 */
 	public int insertPost(Board board) {
@@ -153,6 +153,47 @@ public class BoardDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.err.println("조회수 업데이트 중 예외 발생");
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
+	/**
+	 * 게시글을 수정합니다.
+	 * @param board
+	 * @return
+	 */
+	public int updatePost(Board board) {
+		int res = 0;
+		String sql = "UPDATE BOARD SET TITLE = ?, CONTENT = ? WHERE NUM = ?";
+		try(Connection conn = ConnectionPool.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);) {
+			pstmt.setString(1, board.getTitle());
+			pstmt.setString(2, board.getContent());
+			pstmt.setInt(3, board.getNum());			
+			res = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.err.println("게시물 등록 중 예외 발생");
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
+	/**
+	 * 게시글을 삭제합니다.
+	 * @param num
+	 * @return
+	 */
+	public int deletePost(String num) {
+		int res = 0;
+		String sql = "DELETE FROM BOARD WHERE NUM = " + num;
+		try(Connection conn = ConnectionPool.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);) {	
+			res = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.err.println("게시글 삭제 중 예외 발생");
 			e.printStackTrace();
 		}
 		return res;
