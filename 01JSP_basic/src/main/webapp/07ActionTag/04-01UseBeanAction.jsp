@@ -8,7 +8,7 @@
 </head>
 <body>
 <h2>액션 태그로 폼의 값을 한번에 받기</h2>
-<!-- 05UseBeanForm.jsp로부터 폼의 값을 받아 온다. -->
+<!-- 04-01UseBeanForm.jsp로부터 폼의 값을 받아 온다. -->
 
 <!-- 자바빈즈 생성하기 -->
 <% request.setCharacterEncoding("UTF-8"); %>
