@@ -25,6 +25,7 @@
 	BoardPagingDao dao = new BoardPagingDao();
 	List<Board> boardlist = dao.getListPage(criteria);
 %>
+
 <!-- 검색폼 --> 
 <form method="get">  
 	<table border="1" style="width: 90%">
