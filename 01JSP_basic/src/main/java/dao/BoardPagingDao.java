@@ -87,7 +87,7 @@ public class BoardPagingDao {
 				board.setVisitcount(rs.getInt("VISITCOUNT"));
 			}
 		} catch (SQLException e) {
-			System.out.println("게시물 조회 중 예외 발생");
+			System.out.println("게시글 조회 중 예외 발생");
 			e.printStackTrace();
 		}
 		return board;
