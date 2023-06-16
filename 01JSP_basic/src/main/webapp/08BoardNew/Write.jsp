@@ -26,9 +26,9 @@
 	    </tr>
 	    <tr>
 	        <td colspan="2" align="center">
-	            <button type="submit">작성 완료</button>
-	            <button type="reset">다시 입력</button>
-	            <button type="button">목록 보기</button>
+	            <button type="submit">작성완료</button>
+	            <button type="reset">다시입력</button>
+	            <button type="button">목록으로</button>
 	        </td>
 	    </tr>
 	</table>

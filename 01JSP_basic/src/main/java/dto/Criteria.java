@@ -2,36 +2,43 @@ package dto;
 
 public class Criteria {
 	
-	private String searchfield;
-	private String searchword;
+	private String searchfield = "";
+	private String searchword = "";
 	
-	int pageNo = 1; // 요청한 페이지 번호 - 1로 초기화
-	int amount = 10; // 페이지당 보이는 게시물 수 - 10으로 초기화
+	int pageno = 1; // 요청한 페이지 번호 - 1로 초기화
+	int amount = 10; // 페이지당 보이는 게시물 수 - 10으로 초기화	
 	
-	int startNo = 1; // ROWNUM의 시작 번호 - 1로 초기화
-	int endNo = 10;	 // ROWNUM의 끝 번호 - 10으로 초기화
+	int startno = 1; // 페이지 블록 시작 번호 - 1로 초기화
+	int endno = 10;	// 페이지 블록 끝 번호 - 10으로 초기화
 	
-	public Criteria(int pageNo) {
-		if(pageNo>0) {
-			this.pageNo = pageNo;
-			endNo = pageNo*amount;
-			startNo = (pageNo*amount)-(amount-1);
+	public Criteria(int pageno) {
+		if(pageno>0) {
+			this.pageno = pageno;
+			endno = pageno*amount;
+			startno = (pageno*amount)-(amount-1);
 		}
 	}
-
-	public Criteria(String searchfield, String searchword, int pageNo) {
-		this.searchfield = searchfield;
-		this.searchword = searchword;
+	
+	public Criteria(String searchfield, String searchword, String pagenoStr) {
+		if(searchword!=null) {
+			this.searchfield = searchfield;
+			this.searchword = searchword;
+		}
 		
-		if(pageNo>0) {
-			this.pageNo = pageNo;
-			endNo = pageNo*amount;
-			startNo = (pageNo*amount)-(amount-1);
-		}
+		if(pagenoStr!=null) {
+			pageno = Integer.parseInt(pagenoStr);
+			if(pageno>0) {
+				this.pageno = pageno;
+				endno = pageno*amount;
+				startno = (pageno*amount)-(amount-1);
+			} else {
+				pageno = 1;
+			}
+		} 		
 	}
 	
-	public Criteria(int pageNo, int amount) {
-		this.pageNo = pageNo;
+	public Criteria(int pageno, int amount) {
+		this.pageno = pageno;
 		this.amount = amount;
 	}
 	
@@ -51,12 +58,12 @@ public class Criteria {
 		this.searchword = searchword;
 	}
 	
-	public int getPageNo() {
-		return pageNo;
+	public int getPageno() {
+		return pageno;
 	}
 	
-	public void setPageNo(int pageNo) {
-		this.pageNo = pageNo;
+	public void setPageno(int pageno) {
+		this.pageno = pageno;
 	}
 	
 	public int getAmount() {
@@ -67,20 +74,20 @@ public class Criteria {
 		this.amount = amount;
 	}
 	
-	public int getStartNo() {
-		return startNo;
+	public int getStartno() {
+		return startno;
 	}
 	
-	public void setStartNo(int startNo) {
-		this.startNo = startNo;
+	public void setStartno(int startno) {
+		this.startno = startno;
 	}
 	
-	public int getEndNo() {
-		return endNo;
+	public int getEndno() {
+		return endno;
 	}
 	
-	public void setEndNo(int endNo) {
-		this.endNo = endNo;
+	public void setEndno(int endno) {
+		this.endno = endno;
 	}
 
 }

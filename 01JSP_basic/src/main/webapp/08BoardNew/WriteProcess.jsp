@@ -1,5 +1,5 @@
 <%@page import="common.JSFunction"%>
-<%@page import="dao.BoardPagingDao"%>
+<%@page import="dao.BoardDaoNew"%>
 <%@page import="dto.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -22,9 +22,9 @@
 	board.setContent(content);
 	board.setId(id);
 	
-	BoardPagingDao dao = new BoardPagingDao();
+	BoardDaoNew dao = new BoardDaoNew();
 	if(dao.insertPost(board)>0){
-		JSFunction.alertLocation("게시물을 등록하였습니다.", "List.jsp", out);
+		JSFunction.alertLocation("게시물을 등록하였습니다.", "View.jsp?num=" + board.getNum(), out);
 	} else{
 		JSFunction.alertBack("게시물 등록 중 오류가 발생하였습니다.", out);
 	}

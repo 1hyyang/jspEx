@@ -1,4 +1,4 @@
-<%@page import="dao.BoardPagingDao"%>
+<%@page import="dao.BoardDaoNew"%>
 <%@page import="common.JSFunction"%>
 <%@page import="dto.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -14,15 +14,15 @@
 <%@include file="../08Board/00Link.jsp" %>
 <h2>회원제 게시판 - 상세보기(View)</h2>
 <%
-	String num = request.getParameter("num");
-	if(num==null){
-		JSFunction.alertBack("존재하지 않는 게시물입니다.", out);
-	}
-	
-	BoardPagingDao dao = new BoardPagingDao();
+	BoardDaoNew dao = new BoardDaoNew();
+	String num = request.getParameter("num");	
 	dao.updateVisitcount(num);
 	
 	Board board = dao.selectPost(num);
+	if(num==null){
+		JSFunction.alertBack("존재하지 않는 게시물입니다.", out);		
+		return;
+	}	
 %>
 <table border="1" style="width: 90%">
     <tr>
@@ -50,14 +50,27 @@
         <%
         	if(session.getAttribute("userid")!=null && board.getId().equals(session.getAttribute("userid"))){
         %>		
-            <button type="button">수정하기</button>
-            <button type="button">삭제하기</button>
+            <button type="button" onclick="location.href='Edit.jsp?num=<%= board.getNum() %>'">수정</button>
+            <button type="button" onclick="deletePost()">삭제</button>
         <% 
         	}
+        %>
+        <%        
+        	String pageno = "1";
+        	if(request.getParameter("pageno")!=null){
+        		pageno = request.getParameter("pageno");
+        	}
         %>        
-            <button type="button" onclick="location.href='List.jsp'">목록보기</button>
+            <button type="button" onclick="location.href='List.jsp?pageno=<%= pageno %>'">목록으로</button>
         </td>
     </tr>
 </table>
+<script>
+	function deletePost(){
+		if(confirm("삭제하시겠습니까?")){
+			location.href="DeleteProcess.jsp?num=<%= board.getNum() %>"
+		}
+	}
+</script>
 </body>
 </html>

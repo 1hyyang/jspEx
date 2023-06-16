@@ -16,9 +16,9 @@
         %>        	
             <!-- 8장과 9장의 회원제 게시판 프로젝트에서 사용할 링크 -->
             &nbsp;&nbsp;&nbsp; 
-            <a href="../08Board/02-00Board.jsp">게시판(페이징X)</a>
+            <a href="../08Board/02-00Board.jsp">게시판</a>
             &nbsp;&nbsp;&nbsp; 
-            <a href="../08BoardPaging/List.jsp">게시판(페이징O)</a>
+            <a href="../08BoardNew/List.jsp">게시판new</a>
         </td>
     </tr>
 </table>

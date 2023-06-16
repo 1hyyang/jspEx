@@ -1,3 +1,4 @@
+<%@page import="dto.Criteria"%>
 <%@page import="java.util.List"%>
 <%@page import="dto.Board"%>
 <%@page import="dao.BoardDao"%>
@@ -13,27 +14,32 @@
 <jsp:include page="00Link.jsp"/>
 <h2>목록보기</h2>
 <%
+	String pageno = request.getParameter("pageno");
 	String searchfield = request.getParameter("searchfield");
 	String searchword = request.getParameter("searchword");
 	
+	Criteria criteria = new Criteria(searchfield, searchword, pageno);
+	
 	BoardDao dao = new BoardDao();
-	List<Board> boardlist = dao.getList(searchfield, searchword);
+	List<Board> boardlist = dao.getListPage(criteria);
 	
 	// 총 건수 출력
-	int totalcount = dao.getTotalCount(searchfield, searchword);
+	int totalcount = dao.getTotalcount(criteria);
 %>
 총 건수: <%= totalcount %>
 
 <!-- 검색 -->
-<form method="get">
+<form name="searchform" method="get">
+	<input type="hidden" name="pageno" value="<%= criteria.getPageno() %>">
 	<table border="1" style="width: 90%">
 		<tr>
 			<td align="center">
 				<select name="searchfield">
-					<option value="title">제목</option>
-					<option value="content">내용</option>
+					<option value="title" <%= "title".equals(criteria.getSearchfield())?"selected":"" %>>제목</option> 
+	            	<option value="content" <%= "content".equals(criteria.getSearchfield())?"selected":"" %>>내용</option>
+	            	<option value="id" <%= "id".equals(criteria.getSearchfield())?"selected":"" %>>작성자</option>
 				</select>
-				<input type="text" name="searchword" value="<%= searchword==null?"":searchword %>">
+				<input type="text" name="searchword" value="<%= criteria.getSearchword() %>">
 				<input type="submit" value="검색">
 			</td>
 		</tr>
@@ -59,9 +65,9 @@
 	} else{
 		for(Board board:boardlist) {		
 %>
-	<tr> 
+	<tr align="center"> 
 		<td><%= board.getNum() %></td> 
-		<td><a href="02-02View.jsp?num=<%= board.getNum() %>"><%= board.getTitle() %></a></td> 
+		<td align="left"><a href="02-02View.jsp?num=<%= board.getNum() %>"><%= board.getTitle() %></a></td> 
 		<td><%= board.getId() %></td> 
 		<td><%= board.getPostdate() %></td> 
 		<td><%= board.getVisitcount() %></td>
@@ -86,5 +92,17 @@
 <%
 	}
 %>
+
+<!-- 페이지 블록 -->
+<%
+	PageDto pageDto = new PageDto(totalcount, criteria);
+%>
+<table border="1" style="width: 90%">
+	<tr>
+		<td align="center"> 
+		<%@include file="02-05PageNavi.jsp" %>
+		</td>
+	</tr>
+</table>
 </body>
 </html>
