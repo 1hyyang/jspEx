@@ -19,7 +19,7 @@
 	dao.updateVisitcount(num);
 	
 	Board board = dao.selectPost(num);
-	if(num==null){
+	if(board==null){
 		JSFunction.alertBack("존재하지 않는 게시물입니다.", out);		
 		return;
 	}	

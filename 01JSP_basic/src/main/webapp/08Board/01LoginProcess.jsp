@@ -21,10 +21,10 @@
 		// 페이지 이동 - response 객체의 redirect 방식으로
 		response.sendRedirect("01LoginForm.jsp");
 	} else{
-		// 로그인 실패 -> 오류 메시지 저장, LoginForm.jsp로 이동
+		// 로그인 실패 -> 오류 메시지 저장, 01LoginForm.jsp로 이동
 		request.setAttribute("LoginErrMsg", "아이디/비밀번호가 일치하지 않습니다.");
 		// 페이지 이동 - request 객체의 forward 방식으로
-		request.getRequestDispatcher("LoginForm.jsp").forward(request, response);
+		request.getRequestDispatcher("01LoginForm.jsp").forward(request, response);
 	}
 %>
 </body>

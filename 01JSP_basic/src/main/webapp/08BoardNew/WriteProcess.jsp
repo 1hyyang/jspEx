@@ -24,6 +24,7 @@
 	
 	BoardDaoNew dao = new BoardDaoNew();
 	if(dao.insertPost(board)>0){
+		// 여기 수정!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		JSFunction.alertLocation("게시물을 등록하였습니다.", "View.jsp?num=" + board.getNum(), out);
 	} else{
 		JSFunction.alertBack("게시물 등록 중 오류가 발생하였습니다.", out);
