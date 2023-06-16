@@ -17,6 +17,11 @@ public class BoardDao {
 		// TODO Auto-generated constructor stub
 	}
 	
+	/**
+	 * 게시물을 조회합니다.
+	 * @param criteria
+	 * @return
+	 */
 	public List<Board> getListPage(Criteria criteria) {
 		List<Board> boardlist = new ArrayList<Board>();
 		
@@ -55,7 +60,7 @@ public class BoardDao {
 	}
 	
 //	/**
-//	 * 게시글을 조회합니다.
+//	 * 게시물을 조회합니다.
 //	 * @param searchfield
 //	 * @param searchword
 //	 * @return List<Board>
@@ -98,7 +103,7 @@ public class BoardDao {
 //	}
 	
 	/**
-	 * 전체 게시물의 개수를 반환합니다.
+	 * 전체 게시물의 수를 반환합니다.
 	 * @return
 	 */
 	public int getTotalcount(Criteria criteria) {
@@ -115,7 +120,7 @@ public class BoardDao {
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.err.println("전체 게시물의 개수 조회 중 예외 발생");
+			System.err.println("전체 게시물 수 조회 중 예외 발생");
 			e.printStackTrace();
 		}
 		return totalcount;
@@ -142,7 +147,12 @@ public class BoardDao {
 		return res;
 	}
 	
-	public int insertedPost(String id) {
+	/**
+	 * 게시한 글의 번호를 반환합니다.
+	 * @param id
+	 * @return
+	 */
+	public int insertPostNum(String id) {
 		int num = 0;
 		String sql = "SELECT MAX(NUM) FROM BOARD WHERE ID = '" + id + "'";
 		try(Connection conn = ConnectionPool.getConnection();
@@ -159,7 +169,7 @@ public class BoardDao {
 	}
 
 	/**
-	 * 게시글 번호를 전달 받아 게시글을 조회합니다.
+	 * 게시글을 조회합니다.
 	 * @param num
 	 * @return
 	 */

@@ -68,7 +68,7 @@ public class BoardDaoNew {
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.err.println("전체 게시물의 개수 조회 중 예외 발생");
+			System.err.println("전체 게시물 수 조회 중 예외 발생");
 			e.printStackTrace();
 		}
 		return totalcount;
@@ -91,7 +91,7 @@ public class BoardDaoNew {
 		return res;		
 	}
 	
-	public int insertedPost(String id) {
+	public int insertPostNum(String id) {
 		int num = 0;
 		String sql = "SELECT MAX(NUM) FROM BOARD WHERE ID = '" + id + "'";
 		try(Connection conn = ConnectionPool.getConnection();
