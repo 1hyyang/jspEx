@@ -2,8 +2,8 @@ package dto;
 
 public class Criteria {
 	
-	private String searchfield = "";
-	private String searchword = "";
+	private String searchfield;
+	private String searchword;
 	
 	int pageno = 1; // 요청한 페이지 번호 - 1로 초기화
 	int amount = 10; // 페이지당 보이는 게시물 수 - 10으로 초기화	

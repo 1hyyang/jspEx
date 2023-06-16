@@ -15,7 +15,7 @@
 	request.setCharacterEncoding("UTF-8");
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
-	String id = (String)(session.getAttribute("userid"));
+	String id = session.getAttribute("userid").toString();
 	
 	Board board = new Board();
 	board.setTitle(title);
@@ -24,8 +24,7 @@
 	
 	BoardDaoNew dao = new BoardDaoNew();
 	if(dao.insertPost(board)>0){
-		// 여기 수정!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		JSFunction.alertLocation("게시물을 등록하였습니다.", "View.jsp?num=" + board.getNum(), out);
+		JSFunction.alertLocation("게시물을 등록하였습니다.", "View.jsp?num=" + dao.insertedPost(id) , out);
 	} else{
 		JSFunction.alertBack("게시물 등록 중 오류가 발생하였습니다.", out);
 	}

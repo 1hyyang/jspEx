@@ -10,6 +10,7 @@
 </style>
 </head>
 <body>
+<jsp:include page="02-01IsLogin.jsp"/>
 <jsp:include page="00Link.jsp"/>
 <h2>글쓰기</h2>
 <form name="writeform" method="post" action="02-01WriteProcess.jsp"

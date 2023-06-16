@@ -19,7 +19,8 @@ public class BoardDaoNew {
 
 	public List<Board> getListPage(Criteria criteria){
 		List<Board> boardlist = new ArrayList<>();
-		String sql = "SELECT * FROM (SELECT ROWNUM RN, T.* FROM ("
+		
+		String sql = "SELECT * FROM (SELECT T.*, ROWNUM RN FROM ("
 						+ "SELECT NUM, TITLE, CONTENT, ID"
 							+ ", DECODE(TRUNC(SYSDATE), TRUNC(POSTDATE)"
 								+ ", TO_CHAR(POSTDATE, 'HH24:MI:SS')"
@@ -88,6 +89,22 @@ public class BoardDaoNew {
 			e.printStackTrace();
 		}
 		return res;		
+	}
+	
+	public int insertedPost(String id) {
+		int num = 0;
+		String sql = "SELECT MAX(NUM) FROM BOARD WHERE ID = '" + id + "'";
+		try(Connection conn = ConnectionPool.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery();) {
+			if(rs.next()) {
+				num = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			System.out.println("게시글 조회 중 예외 발생");
+			e.printStackTrace();
+		}
+		return num;
 	}
 	
 	public Board selectPost(String num) {

@@ -8,6 +8,7 @@
 <title>회원제 게시판</title>
 </head>
 <body>
+<%@include file="../08Board/02-01IsLogin.jsp"%>
 <%@include file="../08Board/00Link.jsp" %>
 <h2>회원제 게시판 - 글쓰기(Write)</h2>
 <form method="post" action="WriteProcess.jsp">

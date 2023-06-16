@@ -18,15 +18,21 @@ public class BoardDao {
 	}
 	
 	public List<Board> getListPage(Criteria criteria) {
-		List<Board> boardlist = new ArrayList<Board>();		
-		String sql = "SELECT * FROM (SELECT T.*, ROWNUM RN FROM (";
-		sql += "SELECT * FROM BOARD ";
-		// 검색어가 입력되면 검색 조건을 추가		
+		List<Board> boardlist = new ArrayList<Board>();
+		
+		String sql = "SELECT * FROM (SELECT T.*, ROWNUM RN FROM ("
+						+ "SELECT NUM, TITLE, CONTENT, ID"
+							+ ", DECODE(TRUNC(SYSDATE), TRUNC(POSTDATE)"
+								+ ", TO_CHAR(POSTDATE, 'HH24:MI:SS')"
+								+ ", TO_CHAR(POSTDATE, 'YYYY-MM-DD')) POSTDATE"
+							+ ", VISITCOUNT "
+						+ "FROM BOARD ";	
 		if(criteria.getSearchword()!=null && !"".equals(criteria.getSearchword())) {
 			sql += "WHERE " + criteria.getSearchfield() + " LIKE '%" + criteria.getSearchword() + "%' ";
 		}
-		sql += "ORDER BY NUM DESC";
-		sql += ") T) WHERE RN BETWEEN " + criteria.getStartno() + " AND " + criteria.getEndno();
+		sql += "ORDER BY NUM DESC) T) "
+				+ "WHERE RN BETWEEN " + criteria.getStartno() + " AND " + criteria.getEndno();
+		
 		try(Connection conn = ConnectionPool.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery();) {
@@ -134,6 +140,22 @@ public class BoardDao {
 			e.printStackTrace();
 		}
 		return res;
+	}
+	
+	public int insertedPost(String id) {
+		int num = 0;
+		String sql = "SELECT MAX(NUM) FROM BOARD WHERE ID = '" + id + "'";
+		try(Connection conn = ConnectionPool.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery();) {
+			if(rs.next()) {
+				num = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			System.out.println("게시글 조회 중 예외 발생");
+			e.printStackTrace();
+		}
+		return num;
 	}
 
 	/**
