@@ -20,7 +20,7 @@
 	if(board==null){
 		JSFunction.alertBack("존재하지 않는 게시물입니다.", out);
 		return;  // 아래의 코드를 더 이상 실행하지 않고 종료한다. 
-				 // return문이 없으면 아래의 코드가 실행되고 이때 board 객체가 null이므로 NullPointerException 발생
+				 // return문이 없으면 아래의 코드가 실행되고, 이때 board 객체가 null이므로 NullPointerException 발생
 	}
 %>
 <table border="1" style="width: 90%">
