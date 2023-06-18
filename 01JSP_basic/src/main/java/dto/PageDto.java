@@ -5,7 +5,7 @@ public class PageDto {
 	int blockamount = 5; // 페이지 블록의 크기
 	int startno; // 페이지 블록의 시작 번호
 	int endno; // 페이지 블록의 끝 번호	
-	int realendno; // 전체 게시물의 끝 페이지 번호
+	int realendno; // 마지막 페이지 번호
 	boolean prev, next; // 이전, 다음 버튼 (true: 보여주기)		
 	int total; // 전체 게시물 수	
 	Criteria criteria; // pageno 페이지 번호, amount 페이지당 게시물 수
@@ -23,11 +23,10 @@ public class PageDto {
 		endno = (int)((Math.ceil(criteria.pageno/(blockamount*1.0)))*blockamount);
 		// 페이지 블록의 시작 번호
 		startno = endno-(blockamount-1);		
-		// 전체 게시물의 끝 페이지 번호
+		// 마지막 페이지 번호
 		realendno = (int)(Math.ceil((total*1.0)/criteria.getAmount()));
 		
-		// 페이지 블록의 끝 번호를 설정
-		// 전체 게시물의 끝 페이지 번호보다 큰 경우 전체 게시물의 끝 페이지 번호로 설정
+		// 페이지 블록의 끝 번호가 마지막 페이지 번호보다 큰 경우 마지막 페이지 번호로 설정
 		endno = endno>realendno?realendno:endno;
 		
 		// 앞으로 이동/뒤로 이동 설정
