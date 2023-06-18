@@ -36,7 +36,7 @@ public class BoardDao {
 			sql += "WHERE " + criteria.getSearchfield() + " LIKE '%" + criteria.getSearchword() + "%' ";
 		}
 		sql += "ORDER BY NUM DESC) T) "
-				+ "WHERE RN BETWEEN " + criteria.getStartno() + " AND " + criteria.getEndno();
+				+ "WHERE RN BETWEEN " + criteria.getStartnum() + " AND " + criteria.getEndnum();
 		
 		try(Connection conn = ConnectionPool.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);

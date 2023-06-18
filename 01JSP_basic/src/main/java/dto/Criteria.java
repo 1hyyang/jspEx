@@ -5,17 +5,16 @@ public class Criteria {
 	private String searchfield = "";
 	private String searchword = "";
 	
-	int pageno = 1; // 요청한 페이지 번호 - 1로 초기화
-	int amount = 10; // 페이지당 보이는 게시물 수 - 10으로 초기화	
-	
-	int startno = 1; // 페이지 블록 시작 번호 - 1로 초기화
-	int endno = 10;	// 페이지 블록 끝 번호 - 10으로 초기화
+	int pageno = 1; // 요청한 페이지 번호
+	int amount = 10; // 페이지당 보이는 게시물 수	
+	int startnum; // 요청한 페이지의 첫 번째 ROWNUM
+	int endnum;	// 요청한 페이지의 마지막 ROWNUM
 	
 	public Criteria(int pageno) {
 		if(pageno>0) {
 			this.pageno = pageno;
-			endno = pageno*amount;
-			startno = (pageno*amount)-(amount-1);
+			endnum = pageno*amount;
+			startnum = (pageno*amount)-(amount-1);
 		}
 	}
 	
@@ -29,8 +28,8 @@ public class Criteria {
 			pageno = Integer.parseInt(pagenoStr);
 			if(pageno>0) {
 				this.pageno = pageno;
-				endno = pageno*amount;
-				startno = (pageno*amount)-(amount-1);
+				endnum = pageno*amount;
+				startnum = (pageno*amount)-(amount-1);
 			} else {
 				pageno = 1;
 			}
@@ -74,20 +73,20 @@ public class Criteria {
 		this.amount = amount;
 	}
 	
-	public int getStartno() {
-		return startno;
+	public int getStartnum() {
+		return startnum;
 	}
 	
-	public void setStartno(int startno) {
-		this.startno = startno;
+	public void setStartnum(int startnum) {
+		this.startnum = startnum;
 	}
 	
-	public int getEndno() {
-		return endno;
+	public int getEndnum() {
+		return endnum;
 	}
 	
-	public void setEndno(int endno) {
-		this.endno = endno;
+	public void setEndnum(int endnum) {
+		this.endnum = endnum;
 	}
 
 }
