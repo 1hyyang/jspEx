@@ -69,11 +69,11 @@
 %>
     <tr align="center">
         <td><%= board.getNum() %></td>	<!--게시물 번호-->
-        <td align="left">
+        <td align="left">	<!--제목(+ 하이퍼링크)-->
         	<a href="View.jsp?num=<%= board.getNum() %>&pageno=<%= criteria.getPageno() %>">
         		<%= board.getTitle() %>
         	</a> 
-        </td>	<!--제목(+ 하이퍼링크)-->
+        </td>
         <td align="center"><%= board.getId() %></td>	<!--작성자 아이디-->
         <td align="center"><%= board.getPostdate() %></td>	<!--작성일-->
         <td align="center"><%= board.getVisitcount() %></td>	<!--조회수-->
