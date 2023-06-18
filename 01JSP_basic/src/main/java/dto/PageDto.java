@@ -2,6 +2,7 @@ package dto;
 
 public class PageDto {
 	
+	int blockamount = 5; // 페이지 블록 크기
 	int startno; // 페이지 블록 시작 번호
 	int endno; // 페이지 블록 끝 번호	
 	int realendno; // 게시물의 끝 페이지 번호
@@ -19,8 +20,8 @@ public class PageDto {
 		this.criteria = criteria;
 		
 		// 페이지 블록의 끝 번호 구하기
-		endno = (int)(Math.ceil(criteria.pageno/10.0)*10);
-		startno = endno-(10-1);
+		endno = (int)((Math.ceil(criteria.pageno/(blockamount*1.0)))*blockamount);
+		startno = endno-(blockamount-1);
 		
 		// 끝 페이지 번호
 		realendno = (int)(Math.ceil((total*1.0)/criteria.getAmount()));
