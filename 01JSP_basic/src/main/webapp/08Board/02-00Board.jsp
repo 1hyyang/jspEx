@@ -23,7 +23,6 @@
 	BoardDao dao = new BoardDao();
 	List<Board> boardlist = dao.getListPage(criteria);
 	
-	// 총 건수 출력
 	int totalcount = dao.getTotalcount(criteria);
 %>
 총 건수: <%= totalcount %>
