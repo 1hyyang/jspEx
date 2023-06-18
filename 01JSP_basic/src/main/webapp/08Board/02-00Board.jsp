@@ -39,7 +39,7 @@
 	            	<option value="content" <%= "content".equals(criteria.getSearchfield())?"selected":"" %>>내용</option>
 	            	<option value="id" <%= "id".equals(criteria.getSearchfield())?"selected":"" %>>작성자</option>
 				</select>
-				<input type="text" name="searchword" value="<%= criteria.getSearchword()==null?"":criteria.getSearchword() %>">
+				<input type="text" name="searchword" value="<%= criteria.getSearchword() %>">
 				<input type="submit" value="검색">
 			</td>
 		</tr>
