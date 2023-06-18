@@ -56,8 +56,8 @@ public class PageDto {
 		return realendno;
 	}
 
-	public void setRealendno(int realend) {
-		this.realendno = realend;
+	public void setRealendno(int realendno) {
+		this.realendno = realendno;
 	}
 
 	public boolean isPrev() {

@@ -12,10 +12,11 @@
 <body>
 <%@include file="../08Board/02-01IsLogin.jsp" %>
 <%	
+	//request.setCharacterEncoding("UTF-8");
+
 	int num = Integer.parseInt(request.getParameter("num"));
 	String title = request.getParameter("title");
-	String content = request.getParameter("content");
-	
+	String content = request.getParameter("content");	
 	Board board = new Board(num, title, content, "", "", 0);
 	
 	BoardDaoNew dao = new BoardDaoNew();

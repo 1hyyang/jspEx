@@ -8,7 +8,7 @@ public class Criteria {
 	int pageno = 1; // 요청한 페이지 번호
 	int amount = 10; // 페이지당 보이는 게시물 수	
 	int startnum = 1; // 요청한 페이지의 시작 ROWNUM
-	int endnum = 10;	// 요청한 페이지의 끝 ROWNUM
+	int endnum = 10; // 요청한 페이지의 끝 ROWNUM
 	
 	public Criteria(String pagenoStr) {
 		// pagenoStr이 null이면 pageno에 초기값을 설정하고 null이 아닌 경우에만 다음 조건문을 실행

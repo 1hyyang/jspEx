@@ -11,6 +11,7 @@
 <body>
 <%
 	String num = request.getParameter("num");
+
 	BoardDao dao = new BoardDao();
 	if(dao.deletePost(num)>0){
 		JSFunction.alertLocation("삭제되었습니다.", "02-00Board.jsp", out);

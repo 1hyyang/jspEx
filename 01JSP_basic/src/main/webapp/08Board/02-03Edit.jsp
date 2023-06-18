@@ -9,17 +9,18 @@
 <meta charset="UTF-8">
 <title>수정하기</title>
 <style>
-	* {box-sizing: border-box;}
+	*{box-sizing: border-box;};
 </style>
 </head>
 <body>
 <jsp:include page="00Link.jsp"/>
 <h2>수정하기</h2>
 <%
-	BoardDao dao = new BoardDao();	
+	BoardDao dao = new BoardDao();
 	Board board = dao.selectPost(request.getParameter("num"));
 	if(board==null){
 		JSFunction.alertBack("게시글이 존재하지 않습니다.", out);
+		return;
 	}
 %>
 <form name="editform" method="post" action="02-03EditProcess.jsp?num=<%= board.getNum() %>"
@@ -31,7 +32,9 @@
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td><textarea name="content" style="width: 100%; height: 200px;"><%= board.getContent() %></textarea></td>
+			<td>
+				<textarea name="content" style="width: 100%; height: 200px;"><%= board.getContent().replace("\r\n", "<br>") %></textarea>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="2" style="text-align: center;">

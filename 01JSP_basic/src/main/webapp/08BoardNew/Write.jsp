@@ -29,7 +29,7 @@
 	        <td colspan="2" align="center">
 	            <button type="submit">작성완료</button>
 	            <button type="reset">다시입력</button>
-	            <button type="button">목록으로</button>
+	            <button type="button" onclick="location.href='List.jsp'">목록으로</button>
 	        </td>
 	    </tr>
 	</table>

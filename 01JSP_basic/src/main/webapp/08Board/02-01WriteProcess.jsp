@@ -13,16 +13,13 @@
 <!-- 사용자가 로그아웃을 하지 않았더라도 일정 시간이 경과되면 세션이 제거되므로 오류가 발생할 수 있다. -->
 <jsp:include page="02-01IsLogin.jsp"/>
 <%
-	request.setCharacterEncoding("UTF-8");
+	// request.setCharacterEncoding("UTF-8");
+
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");	
 	// String id = session.getAttribute("userid")==null?"":session.getAttribute("userid").toString();
 	String id = session.getAttribute("userid").toString();
-
-	Board board = new Board();
-	board.setTitle(title);
-	board.setContent(content);
-	board.setId(id);	
+	Board board = new Board(0, title, content, id, "", 0);
 	
 	BoardDao dao = new BoardDao();	
 	if(dao.insertPost(board)>0){

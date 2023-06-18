@@ -12,15 +12,12 @@
 <body>
 <%@include file="../08Board/02-01IsLogin.jsp" %>
 <%
-	request.setCharacterEncoding("UTF-8");
+	// request.setCharacterEncoding("UTF-8");
+
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
 	String id = session.getAttribute("userid").toString();
-	
-	Board board = new Board();
-	board.setTitle(title);
-	board.setContent(content);
-	board.setId(id);
+	Board board = new Board(0, title, content, id, "", 0);
 	
 	BoardDaoNew dao = new BoardDaoNew();
 	if(dao.insertPost(board)>0){

@@ -65,7 +65,11 @@
 %>
 	<tr align="center"> 
 		<td><%= board.getNum() %></td> 
-		<td align="left"><a href="02-02View.jsp?num=<%= board.getNum() %>"><%= board.getTitle() %></a></td> 
+		<td align="left">
+			<a href="02-02View.jsp?num=<%= board.getNum() %>&pageno=<%= criteria.getPageno() %>">
+				<%= board.getTitle() %>
+			</a>
+		</td> 
 		<td><%= board.getId() %></td> 
 		<td><%= board.getPostdate() %></td> 
 		<td><%= board.getVisitcount() %></td>

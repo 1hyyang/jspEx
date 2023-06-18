@@ -13,11 +13,11 @@
 <!-- 사용자가 로그아웃을 하지 않았더라도 일정 시간이 경과되면 세션이 제거되므로 오류가 발생할 수 있다. -->
 <jsp:include page="02-01IsLogin.jsp"/>
 <%
-	request.setCharacterEncoding("UTF-8");
+	// request.setCharacterEncoding("UTF-8");
+
 	int num = Integer.parseInt(request.getParameter("num"));
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
-
 	Board board = new Board(num, title, content, "", "", 0);
 	
 	BoardDao dao = new BoardDao();
