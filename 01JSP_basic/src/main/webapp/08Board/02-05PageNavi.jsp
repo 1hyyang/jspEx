@@ -11,9 +11,9 @@
 <body>
 <script>
 	function go(pageno){
+		// location.href="02-00Board.jsp?pageno=" + pageno;
 		document.searchform.pageno.value = pageno;
 		document.searchform.submit();
-		// location.href="02-00Board.jsp?pageno=" + pageno;
 	}
 </script>
 <%
