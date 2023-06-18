@@ -15,23 +15,25 @@ public class PageDto {
 	}
 	
 	public PageDto(int total, Criteria criteria) {
-		super();
 		this.total = total;
 		this.criteria = criteria;
 		
 		// 페이지 블록의 끝 번호
-		endno = (int)((Math.ceil(criteria.pageno/(blockamount*1.0)))*blockamount);
+		endno = (int)((Math.ceil(criteria.getPageno()/(blockamount*1.0)))*blockamount);
 		// 페이지 블록의 시작 번호
 		startno = endno-(blockamount-1);		
 		// 마지막 페이지 번호
 		realendno = (int)(Math.ceil((total*1.0)/criteria.getAmount()));
 		
-		// 페이지 블록의 끝 번호가 마지막 페이지 번호보다 큰 경우 마지막 페이지 번호로 설정
+		// 마지막 페이지 블록 설정
+		// 페이지 블록의 끝 번호가 마지막 페이지 번호보다 큰 경우 페이지 블록의 끝 번호를 마지막 페이지 번호로 설정
 		endno = endno>realendno?realendno:endno;
 		
-		// 앞으로 이동/뒤로 이동 설정
+		// 이전 버튼/다음 버튼 설정
+		// 첫 번째 페이지 블록이 아니면 이전 버튼 보여주기
 		prev = startno>1?true:false;
-		next = endno==realendno?false:true;
+		// 마지막 페이지 블록이 아니면 다음 버튼 보여주기
+		next = endno!=realendno?true:false;
 	}
 
 	public int getStartno() {

@@ -14,10 +14,9 @@
 <jsp:include page="00Link.jsp"/>
 <h2>목록보기</h2>
 <%
-	String pageno = request.getParameter("pageno");
 	String searchfield = request.getParameter("searchfield");
 	String searchword = request.getParameter("searchword");
-	
+	String pageno = request.getParameter("pageno");	
 	Criteria criteria = new Criteria(searchfield, searchword, pageno);
 	
 	BoardDao dao = new BoardDao();
