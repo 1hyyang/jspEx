@@ -25,7 +25,7 @@ public class BoardDao {
 	public List<Board> getListPage(Criteria criteria) {
 		List<Board> boardlist = new ArrayList<Board>();
 		
-		String sql = "SELECT * FROM (SELECT T.*, ROWNUM RN FROM ("
+		String sql = "SELECT * FROM (SELECT T.*, ROWNUM RNUM FROM ("
 						+ "SELECT NUM, TITLE, CONTENT, ID"
 							+ ", DECODE(TRUNC(SYSDATE), TRUNC(POSTDATE)"
 								+ ", TO_CHAR(POSTDATE, 'HH24:MI:SS')"
@@ -36,7 +36,7 @@ public class BoardDao {
 			sql += "WHERE " + criteria.getSearchfield() + " LIKE '%" + criteria.getSearchword() + "%' ";
 		}
 		sql += "ORDER BY NUM DESC) T) "
-				+ "WHERE RN BETWEEN " + criteria.getStartnum() + " AND " + criteria.getEndnum();
+				+ "WHERE RNUM BETWEEN " + criteria.getStartnum() + " AND " + criteria.getEndnum();
 		
 		try(Connection conn = ConnectionPool.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);

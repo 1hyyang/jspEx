@@ -7,8 +7,8 @@ public class Criteria {
 	
 	int pageno = 1; // 요청한 페이지 번호
 	int amount = 10; // 페이지당 보이는 게시물 수	
-	int startnum; // 요청한 페이지의 첫 번째 ROWNUM
-	int endnum;	// 요청한 페이지의 마지막 ROWNUM
+	int startnum = 1; // 요청한 페이지의 첫 번째 ROWNUM
+	int endnum = 10;	// 요청한 페이지의 마지막 ROWNUM
 	
 	public Criteria(int pageno) {
 		if(pageno>0) {

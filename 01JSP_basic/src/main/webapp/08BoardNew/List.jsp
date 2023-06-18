@@ -15,7 +15,6 @@
 <h2>목록보기(List)</h2>
 <%
 	String pageno = request.getParameter("pageno");
-
 	String searchfield = request.getParameter("searchfield");
 	String searchword = request.getParameter("searchword");
 	
