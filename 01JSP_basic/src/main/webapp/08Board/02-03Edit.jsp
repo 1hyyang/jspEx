@@ -33,7 +33,7 @@
 		<tr>
 			<th>내용</th>
 			<td>
-				<textarea name="content" style="width: 100%; height: 200px;"><%= board.getContent().replace("\r\n", "<br>") %></textarea>
+				<textarea name="content" style="width: 100%; height: 200px;"><%= board.getContent().replace("<br>", "\r\n") %></textarea>
 			</td>
 		</tr>
 		<tr>

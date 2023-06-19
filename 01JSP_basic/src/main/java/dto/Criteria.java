@@ -10,6 +10,10 @@ public class Criteria {
 	int startnum = 1; // 요청한 페이지의 시작 ROWNUM
 	int endnum = 10; // 요청한 페이지의 끝 ROWNUM
 	
+	public Criteria() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Criteria(String pagenoStr) {
 		// pagenoStr이 null이면 pageno에 초기값을 설정하고 null이 아닌 경우에만 다음 조건문을 실행
 		if(pagenoStr!=null) {

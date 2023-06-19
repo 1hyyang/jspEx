@@ -43,7 +43,7 @@
     </tr>
     <tr>
         <td>내용</td>
-        <td colspan="3" height="100"><%= board.getContent().replace("\r\n", "<br>") %></td> 
+        <td colspan="3" height="100"><%= board.getContent() %></td> 
     </tr>
     <tr>
         <td colspan="4" align="center">

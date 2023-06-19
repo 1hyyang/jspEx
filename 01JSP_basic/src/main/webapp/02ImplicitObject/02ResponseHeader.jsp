@@ -12,9 +12,9 @@
 <body>
 <%
 	/*
-		response 객체는 응답 헤더에 정보를 추가하는 기능을 제공
-			add...() : 응답 헤더 추가
-			set...() : 응답 헤더 수정
+	response 객체는 응답 헤더에 정보를 추가하는 기능을 제공
+		add...() : 응답 헤더 추가
+		set...() : 응답 헤더 수정
 	*/
 	String add_date = request.getParameter("add_date");
 	String add_int = request.getParameter("add_int");

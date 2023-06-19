@@ -22,27 +22,30 @@
 		return;  // 아래의 코드를 더 이상 실행하지 않고 종료한다. 
 				 // return문이 없으면 아래의 코드가 실행되고, 이때 board 객체가 null이므로 NullPointerException이 발생
 	}
+	
+	// EL 사용하기 위해 영역에 저장
+	request.setAttribute("board", board);
 %>
 <table border="1" style="width: 90%">
 	<tr>
 		<td>번호</td>
-		<td><%= board.getNum() %></td>
+		<td>${ board.num }</td>
 		<td>작성자</td>
-		<td><%= board.getId() %></td>
+		<td>${ board.id }</td>
 	</tr>
 	<tr>
 		<td>작성일</td>
-		<td><%= board.getPostdate() %></td>
+		<td>${ board.postdate }</td>
 		<td>조회수</td>
-		<td><%= board.getVisitcount() %></td>
+		<td>${ board.visitcount }</td>
 	</tr>
 	<tr>
 		<td>제목</td>
-		<td colspan="3"><%= board.getTitle() %></td>
+		<td colspan="3">${ board.title }</td>
 	</tr>
 	<tr>
 		<td>내용</td>
-		<td colspan="3"><%= board.getContent() %></td>
+		<td colspan="3">${ board.content }</td>
 	</tr>
 	<tr style="text-align: center;">
 		<td colspan="4">

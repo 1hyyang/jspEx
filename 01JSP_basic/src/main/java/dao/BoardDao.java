@@ -93,7 +93,7 @@ public class BoardDao {
 		try(Connection conn = ConnectionPool.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);) {
 			pstmt.setString(1, board.getTitle());
-			pstmt.setString(2, board.getContent());
+			pstmt.setString(2, board.getContent().replace("\r\n", "<br>"));
 			pstmt.setString(3, board.getId());			
 			res = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -186,7 +186,7 @@ public class BoardDao {
 		try(Connection conn = ConnectionPool.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);) {
 			pstmt.setString(1, board.getTitle());
-			pstmt.setString(2, board.getContent());
+			pstmt.setString(2, board.getContent().replace("\r\n", "<br>"));
 			pstmt.setInt(3, board.getNum());			
 			res = pstmt.executeUpdate();
 		} catch (SQLException e) {

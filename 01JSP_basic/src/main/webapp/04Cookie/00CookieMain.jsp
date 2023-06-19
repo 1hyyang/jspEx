@@ -26,10 +26,10 @@
 <h2>1. 쿠키 설정</h2>
 <%
 	/*
-		쿠키 생성
-		new Cookie(이름, 값);
-			- 이름 : 쿠키를 구별하는 이름
-			- 값 : 쿠키에 저장할 실제 데이터
+	쿠키 생성
+	new Cookie(이름, 값);
+		- 이름 : 쿠키를 구별하는 이름
+		- 값 : 쿠키에 저장할 실제 데이터
 	*/
 	Cookie cookie = new Cookie("myCookie", URLEncoder.encode("쿠키맛나요", "UTF-8"));
 			
