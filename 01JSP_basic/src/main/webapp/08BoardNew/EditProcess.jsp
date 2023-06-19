@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원제 게시판 - 수정하기(Edit)</title>
+<title>회원제 게시판</title>
 </head>
 <body>
 <%@include file="../08Board/02-01IsLogin.jsp" %>

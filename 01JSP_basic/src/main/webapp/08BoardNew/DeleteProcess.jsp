@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원제 게시판 - 삭제하기(Delete)</title>
+<title>회원제 게시판</title>
 </head>
 <body>
 <%

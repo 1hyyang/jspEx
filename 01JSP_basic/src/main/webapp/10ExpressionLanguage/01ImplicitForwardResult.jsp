@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>표현 언어 EL</title>
+<title>표현 언어(EL)</title>
 </head>
 <body>
 <h2>각 영역에 저장된 속성 읽기</h2>

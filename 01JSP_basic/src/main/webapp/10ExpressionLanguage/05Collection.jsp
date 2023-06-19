@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>컬렉션</title>
+<title>표현 언어(EL)-컬렉션 전달</title>
 </head>
 <body>
 <%
@@ -26,11 +26,11 @@
 <ul>
 	<!-- 영역을 지정하지 않았지만 페이지 영역에 저장된 list의 값이 출력 -->
 	<!-- List는 index로 접근 -->
-	<li>0번째 요소: ${ list[0] }</li>
+	<li>0번째 요소(list[0]): ${ list[0] }</li>
 	<li>1번째 요소: 
-		<p>객체의 주소값: ${ list[1] }</p>
-		<p>이름: ${ list[1].name }</p>
-		<p>나이: ${ list[1].age }</p>
+		<p>객체의 주소값(list[1]): ${ list[1] }</p>
+		<p>이름(list[1].name): ${ list[1].name }</p>
+		<p>나이(list[1].age): ${ list[1].age }</p>
 	</li>
 </ul>
 
@@ -45,11 +45,11 @@
 %>
 <ul>
 	<!-- Map은 key로 접근 -->
-	<li>한글:
+	<li>한글(map['한글']):
 		<p>${ map['한글'] }</p> <!-- 한글은 .으로 접근 불가 -->
 		<p><%= map.get("한글") %></p>
 	</li> 	
-	<li>Eng: 
+	<li>Eng(map.Eng): 
 		<p>${ map.Eng }</p>
 		<p><%= map.get("Eng") %></p>
 	</li>

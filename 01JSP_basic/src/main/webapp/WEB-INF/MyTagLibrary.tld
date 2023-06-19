@@ -12,12 +12,5 @@
   		 기본 자료형이 아닌 경우, 패키지를 포함한 전체 경로를 지정 -->
   	<function-signature>boolean isNumber(java.lang.String)</function-signature>
   </function>
-  <!-- 
-  <function>
-  	<name>makeCookie</name>
-  	<function-class>util.CookieManager</function-class>
-  	<function-signature>void makeCookie(javax.servlet.http.HttpServletResponse, java.lang.String, java.lang.String, java.lang.Integer)</function-signature>
-  </function>
-   -->
 </taglib>
 

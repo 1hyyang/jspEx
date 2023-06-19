@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <html>
 <meta charset="UTF-8">
-<head><title>표현 언어(EL) - 폼값 처리</title></head>
+<head><title>표현 언어(EL)-폼값 전달</title></head>
 <body>
 <h2>폼값 전송하기</h2>
 <form name="frm" method="post" action="02FormResult.jsp">

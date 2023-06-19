@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>표현 언어(EL)-객체 전달</title>
 </head>
 <body>
 <h2>영역을 통해 전달된 객체 읽기</h2>
@@ -18,9 +18,9 @@
 %>
 
 <ul>
-	<li>personObj: <br>
+	<li>personObj:
 		<!-- ${ requestScope.personObj.name } -->
-		이름: ${ personObj.name }, 나이: ${ personObj.age }
+		<p>이름: ${ personObj.name }, 나이: ${ personObj.age }</p>
 	</li>
 	<li>stringObj: ${ stringObj }</li>
 	<li>integerObj: ${ integerObj }</li>

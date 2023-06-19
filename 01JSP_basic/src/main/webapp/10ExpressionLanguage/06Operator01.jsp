@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>표현 언어(EL)-연산자 활용</title>
 </head>
 <body>
 <%
@@ -22,7 +22,7 @@
 	<!-- 값을 대입 후 출력 -->
 	<li>변수 할당 및 즉시 출력: ${ num1 = 10 }</li>
 	<!-- 값을 대입하고 출력하지 않음 -->
-	<li>변수 할당 및 별도 출력: ${ num2 =20;'' } => ${ num2 }</li>
+	<li>변수 할당 및 별도 출력: ${ num2 = 20;'' } => ${ num2 }</li>
 </ul>
 
 num1=${ num1 }, num2=${ num2 }, num3=${ num3 }
@@ -43,7 +43,7 @@ num3 mod num4 = ${ num3 mod num4 }<br><br>
 <!-- 더하기 연산자+는 덧셈만 가능 (문자열 연결 기능 없음) -->
 num3+num4 = ${ num3+num4 }<br>
 num1+"2345" = ${ num1+"2345" }<br>
-num2+"이십" = \${ num2+"이십" }<br>	<!-- 에러 발생 -->
+num2+"이십" = \${ num2+"이십" } --에러 발생<br>
 
 <h2>비교 연산자</h2>
 <!-- 문자 형태의 연산자 -->

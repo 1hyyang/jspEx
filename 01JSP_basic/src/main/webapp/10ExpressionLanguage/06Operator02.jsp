@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>표현 언어(EL)-연산자 활용</title>
 </head>
 <body>
 <%

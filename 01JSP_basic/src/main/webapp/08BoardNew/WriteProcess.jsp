@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원제 게시판 - 글쓰기(Write)</title>
+<title>회원제 게시판</title>
 </head>
 <body>
 <%@include file="../08Board/02-01IsLogin.jsp" %>

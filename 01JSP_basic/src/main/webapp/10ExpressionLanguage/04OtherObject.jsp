@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>표현 언어(EL)-그 외 전달</title>
 </head>
 <body>
 <!-- 
@@ -17,18 +17,18 @@
 	pageContext : JSP의 pageContext 객체와 동일한 역할
  -->
 
+<h2>쿠키 값 읽기</h2>
 <%
 	// 쿠키 생성
 	CookieManager.makeCookie(response, "ELCookie", "EL좋아요", 10);
 %>
-<h2>쿠키 값 읽기</h2>
 <li>${ cookie.ELCookie.value }</li>
 
 <h2>HTTP 헤더 읽기</h2>
 <ul>
-	<li>host: ${ header.host }</li>
-	<li>user-agent: ${ header['user-agent'] }</li>
-	<li>cookie: ${ header.cookie }</li>
+	<li>${ header.host }</li>
+	<li>${ header['user-agent'] }</li>
+	<li>${ header.cookie }</li>
 </ul>
 
 <h2>컨텍스트 초기화 매개 변수</h2>
