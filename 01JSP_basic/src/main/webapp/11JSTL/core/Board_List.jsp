@@ -55,7 +55,7 @@
 		<th>조회수</th> 
 	</tr>
 	
-<!-- EL을 사용하기 위해 변수를 (영역 설정 안 했으므로) 페이지 영역에 저장 -->
+<!-- EL을 사용하기 위해 변수를 페이지 영역에 저장 -->
 <c:set var="boardlist" value="<%= boardlist %>"/>
 <!-- 리스트가 비었는지 확인 -->
 <c:if test="${ empty boardlist }">
