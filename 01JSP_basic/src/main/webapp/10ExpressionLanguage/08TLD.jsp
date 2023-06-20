@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>TLD</title>
 </head>
 <body>
 <!-- 
@@ -16,7 +16,7 @@
 		uri : TLD 파일의 경로
  -->
  
-<%@taglib prefix="mytag" uri="/WEB-INF/MyTagLibrary.tld"%>
+<%@taglib prefix="mytag" uri="/WEB-INF/MyTagLib.tld"%>
 <h2>TLD 파일에 등록 후 정적 메소드 호출하기</h2>
 <ul>
 	<li>${ mytag:isNumber("100") }</li>

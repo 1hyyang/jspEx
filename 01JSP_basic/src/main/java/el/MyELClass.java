@@ -19,7 +19,7 @@ public class MyELClass {
 			} else if(gender.equals("2") || gender.equals("4")) {
 				res = "여자";
 			} else {
-				// 예외를 발생
+				// 예외를 발생시킴
 				throw new Exception();
 			}
 		} catch (Exception e) {
@@ -50,25 +50,26 @@ public class MyELClass {
 	}
 	
 	// 입력 받은 정수까지 구구단을 HTML 테이블로 출력하는 메소드
-	public static String showGugudan(int limitdan) {
-		StringBuffer stringbuffer = new StringBuffer();
-		stringbuffer.append("<table border='1'>");
-		for(int m=2; m<=limitdan; m++) {
-			stringbuffer.append("<tr>");
+	public static String showGugudan(int dan) {
+		// StringBuffer는 내부의 문자열 변경 가능 (연결, 삽입, 삭제 등)
+		StringBuffer stringBuffer = new StringBuffer();
+		stringBuffer.append("<table border='1'>");
+		for(int m=2; m<=dan; m++) {
+			stringBuffer.append("<tr>");
 			for(int n=1; n<=9; n++) {
-				stringbuffer.append("<td>");
-				stringbuffer.append(m + "*" + n + "=" + m*n);
-				stringbuffer.append("</td>");
+				stringBuffer.append("<td>");
+				stringBuffer.append(m + "*" + n + "=" + m*n);
+				stringBuffer.append("</td>");
 			}
-			stringbuffer.append("</tr>");
+			stringBuffer.append("</tr>");
 		}
-		stringbuffer.append("</table>");
-		return stringbuffer.toString();
+		stringBuffer.append("</table>");
+		return stringBuffer.toString();
 	}
 	
 	public static void main(String[] args) {
 		MyELClass myELClass = new MyELClass();
-		System.out.println(myELClass.getGender("001225-3000000"));		
+		System.out.println(myELClass.getGender("001225-0000000"));		
 		System.out.println(MyELClass.isNumber("12a34b"));
 		System.out.println(MyELClass.showGugudan(4));
 	}
