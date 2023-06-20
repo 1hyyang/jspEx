@@ -20,9 +20,9 @@
 		
 	JSTL 종류
 		Core 태그			: 변수 선언, 조건문/반복문, URL 처리
-		접두어			: c
+			접두어			: c
 		Formatting 태그 	: 숫자, 날짜, 시간 포맷 지정
-		접두어			: fmt
+			접두어			: fmt
 	
 	JSTL 사용 방법
 		1. 라이브러리 추가
@@ -32,7 +32,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- 
-	Core태그
+	Core 태그
 		변수 선언, 조건문, 반복문 등을 대체하는 태그를 제공
 	
 		set 		: 변수 선언 (setAttribute())
@@ -49,12 +49,11 @@
  -->
  
 <!-- 
-	1. 변수 선언(set)
+	변수 선언(set)
 		var		: 변수명
 		value	: 값
 		scope 	: 저장 영역
  -->
- 
 <h2>EL을 이용하여 변수 출력하기</h2>
 <c:set var="directVar" value="100"/>
 <c:set var="elVar" value="${ directVar mod 5 }"/>
@@ -67,26 +66,25 @@
 	<li>${ betweenVar }</li>
 </ul>
 
-<h2>자바빈즈 생성-생성자 사용</h2>
-<c:set var="personVar" value='<%= new Person("콩지", 20) %>' scope="request"/>
+<h2>자바빈즈 생성하기-생성자 사용</h2>
+<c:set var="person" value='<%= new Person("콩지", 20) %>' scope="request"/>
 <ul>
-	<li>이름: ${ personVar.name }</li>
-	<li>나이: ${ requestScope.personVar.age }</li>
+	<li>이름: ${ person.name }</li>
+	<li>나이: ${ requestScope.person.age }</li>
 </ul>
-
+ 
 <!-- 
 	자바빈즈 생성 후 값을 변경하기
 		target	 : 자바빈즈 변수명
 		property : 자바빈즈 속성명 (멤버변수명)
 		value	 : 값 지정
  --> 
- 
 <h2>자바빈즈 생성 후 값을 변경하기-target, property 사용</h2>
-<c:set target="${ personVar }" property="name" value="츠르후"/>
-<c:set target="${ personVar }" property="age" value="18"/>
+<c:set target="${ person }" property="name" value="츠르후"/>
+<c:set target="${ person }" property="age" value="18"/>
 <ul>
-	<li>변경 후 이름: ${ personVar.name }</li>
-	<li>변경 후 나이: ${ requestScope.personVar.age }</li>
+	<li>변경 후 이름: ${ person.name }</li>
+	<li>변경 후 나이: ${ requestScope.person.age }</li>
 </ul>
 
 <h2>List 컬렉션 이용하기</h2>

@@ -63,7 +63,7 @@
         		pageno = request.getParameter("pageno");
         	}
         %> 
-			<input type="button" onclick="location.href='02-00Board.jsp?pageno=<%= pageno %>'" value="목록으로">
+			<input type="button" onclick="location.href='02-00List.jsp?pageno=<%= pageno %>'" value="목록으로">
 		</td>
 	</tr>
 </table>

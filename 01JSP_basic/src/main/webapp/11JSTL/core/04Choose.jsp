@@ -1,6 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,18 +9,18 @@
 </head>
 <body>
 <h2>choose 태그로 짝수/홀수 판별하기</h2>
-<c:set var="number" value="100"/>
+<c:set var="num" value="100"/>
 <c:choose>
-	<c:when test="${ number mod 2 eq 0 }">
-		${ number }은 짝수입니다.
+	<c:when test="${ num mod 2 eq 0 }">
+		${ num }은 짝수입니다.
 	</c:when>
 	<c:otherwise>
-		${ number }은 홀수입니다.
+		${ num }은 홀수입니다.
 	</c:otherwise>
 </c:choose>
 
-<h2>국,영,수 점수를 입력하면 평균을 내어 학점 출력하기</h2>
->=90: A, >=80: B, >=70: C, >=60: D, <60: F
+<h2>국,영,수 점수를 입력 받아 평균을 내어 학점 출력하기</h2>
+>=90 : A, >=80 : B, >=70 : C, >=60 : D, <60 : F
 <!-- 과목별 점수 입력 받기 -->
 <form>
 	<ul>

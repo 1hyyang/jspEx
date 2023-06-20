@@ -28,7 +28,7 @@
 			<td colspan="2" style="text-align: center;">
 				<input type="submit" value="작성완료">
 				<input type="reset" value="다시입력">	
-				<input type="button" onclick="location.href='02-00Board.jsp'" value="목록으로" >			
+				<input type="button" onclick="location.href='02-00List.jsp'" value="목록으로" >			
 			</td>
 		</tr>	
 	</table>

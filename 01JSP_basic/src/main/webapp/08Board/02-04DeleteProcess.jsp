@@ -14,7 +14,7 @@
 
 	BoardDao dao = new BoardDao();
 	if(dao.deletePost(num)>0){
-		JSFunction.alertLocation("삭제되었습니다.", "02-00Board.jsp", out);
+		JSFunction.alertLocation("삭제되었습니다.", "02-00List.jsp", out);
 	} else{
 		JSFunction.alertBack("삭제 중 오류가 발생했습니다.", out);
 	};

@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.ArrayList"%>
@@ -5,7 +6,6 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +21,7 @@
 		step	: 증가값
 		var		: 변수
  -->
+<!-- for(int i=2; i<=10; i+2) -->
 <c:forEach begin="2" end="10" step="2" var="i">
 	${ i }
 </c:forEach>
@@ -29,7 +30,7 @@
 <!-- 
 	varStatus : 루프의 현재 상태를 알려 주는 변수의 이름을 지정
 		current	: var에 지정한 현재 루프의 변수값
-		index	: var에 지정한 현재 루프의 인덱스값
+		index	: var에 지정한 현재 루프의 변수값 (향상된 for문 : 인덱스값)
 		count	: 실제 반복 횟수 (1부터 시작)
 		first	: 루프의 처음일 때 true
 		last	: 루프의 마지막일 때 ture
@@ -66,6 +67,7 @@
 	items 속성에 배열을 지정하고 변수 이름은 "color"로 입력
 	배열을 처음부터 끝까지 돌면서 반복문을 수행
  -->
+<!-- for(String color:rgb) -->
 <c:forEach items="<%= rgb %>" var="color" varStatus="loop">
 	<tr>
 		<td><span style="color: ${ color }">${ color }</span></td>
@@ -85,10 +87,6 @@
 	list.add(new Person("츠르후", 18));
 %>
 <c:set var="list" value="<%= list %>"/>
-<!-- 
-	items  	: 반복을 위한 객체를 지정
-	var		: 변수명
- -->
 <ul>
 <c:forEach items="${ list }" var="person">
 	<li>이름: ${ person.name }, 나이: ${ person.age }</li>
@@ -103,10 +101,10 @@
 %>
 <c:set var="map" value="<%= map %>"/>
 <ul>
-<c:forEach items="${ map }" var="map">
-	<li>key: ${ map.key }<br>
-		value: ${ map.value }<br>
-		이름: ${ map.value.name }, 나이: ${ map.value.age }</li>	
+<c:forEach items="${ map }" var="person">
+	<li>key: ${ person.key }<br>
+		value: ${ person.value }<br>
+		이름: ${ person.value.name }, 나이: ${ person.value.age }</li>	
 </c:forEach>
 </ul>
 

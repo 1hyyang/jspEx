@@ -1,6 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,42 +15,42 @@
  --> 
  
 <h2>JSTL의 if 태그로 짝수/홀수 판별하기</h2>
-<c:set var="number" value="100"/> 
-<c:if test="${ number mod 2 eq 0 }" var="result">
+<c:set var="num" value="100"/> 
+<c:if test="${ num mod 2 eq 0 }" var="res1">
 	<!-- 조건이 참인 경우 실행 -->
-	${ number }은 짝수입니다.
+	${ num }은 짝수입니다.
 </c:if>
 <!-- else 구문 흉내내기 -->
-<c:if test="${ not result }">
-	${ number }은 홀수입니다.
+<c:if test="${ not res1 }">
+	${ num }은 홀수입니다.
 </c:if>
-result: ${ result }
+res1: ${ res1 }
 
 <h2>문자열 비교하기</h2>
 <c:set var="str" value="JSP"/>
-<c:if test="${ str eq 'JAVA' }" var="result2">
+<c:if test="${ str eq 'JAVA' }" var="res2">
 	문자열은 JAVA입니다.
 </c:if>
-<c:if test="${ not result2 }">
+<c:if test="${ not res2 }">
 	JAVA가 아닙니다.
 </c:if>
-result2: ${ result2 }
+res2: ${ res2 }
 
 <h2>조건식 주의사항</h2>
-<c:if test="100" var="result3">
+<c:if test="100" var="res3">
 	EL이 아닌 일반값이 오면 false를 반환
 	하지만 일반값으로 true가 사용되는 것은 예외
 </c:if>
-result3: ${ result3 }<br>
+res3: ${ res3 }<br>
 
-<c:if test="tRuE" var="result4">
+<c:if test="tRuE" var="res4">
 	문자열 "tRuE"는 대소문자에 상관없이 true를 반환
 </c:if>
-result4: ${ result4 }<br>
+res4: ${ res4 }<br>
 
-<c:if test=" ${ true } " var="result5">
+<c:if test=" ${ true } " var="res5">
 	EL에 공백이 삽입되면 false를 반환
 </c:if>
-result5: ${ result5 }<br>
+res5: ${ res5 }<br>
 </body>
 </html>

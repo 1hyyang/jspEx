@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="dto.Criteria"%>
 <%@page import="java.util.List"%>
 <%@page import="dto.Board"%>
@@ -11,7 +12,7 @@
 <title>게시판</title>
 </head>
 <body>
-<jsp:include page="00Link.jsp"/>
+<jsp:include page="/08Board/00Link.jsp"/>
 <h2>목록보기</h2>
 <%
 	String searchfield = request.getParameter("searchfield");
@@ -53,47 +54,45 @@
 		<th>작성일</th> 
 		<th>조회수</th> 
 	</tr>
-<%
-	if(boardlist.isEmpty()){
-%>
+	
+<!-- EL을 사용하기 위해 변수를 (영역 설정 안 했으므로) 페이지 영역에 저장 -->
+<c:set var="boardlist" value="<%= boardlist %>"/>
+<!-- 리스트가 비었는지 확인 -->
+<c:if test="${ empty boardlist }">
 	<tr>
 		<td colspan="5" align="center">등록된 게시물이 없습니다.</td>
 	</tr>
-<%		
-	} else{
-		for(Board board:boardlist) {		
-%>
-	<tr align="center"> 
-		<td><%= board.getNum() %></td> 
-		<td align="left">
-			<a href="02-02View_el.jsp?num=<%= board.getNum() %>&pageno=<%= criteria.getPageno() %>">
-				<%= board.getTitle() %>
-			</a>
-		</td> 
-		<td><%= board.getId() %></td> 
-		<td><%= board.getPostdate() %></td> 
-		<td><%= board.getVisitcount() %></td>
-	</tr>
-<%		
-		}
-	}
-%>
+</c:if>
+<!-- 리스트가 비어있지 않다면 리스트를 출력 -->
+<c:if test="${ not (empty boardlist) }">
+	<!-- 반복문을 통해 리스트에 담긴 board 객체를 출력 (items : 향상된 for문에서 사용) -->
+	<c:forEach items="${ boardlist }" var="board">
+		<tr align="center"> 
+			<td>${ board.num }</td> 
+			<td align="left">
+				<!-- href 속성을 통해 경로를 설정할 때에는 웹 애플리케이션의 루트를 기준으로 삼아야 한다. -->
+				<a href="${ pageContext.request.contextPath }/08Board/02-02View_el.jsp?num=${ board.num }&pageno=<%= criteria.getPageno() %>">
+					${ board.title }
+				</a>
+			</td> 
+			<td>${ board.id }</td> 
+			<td>${ board.postdate }</td> 
+			<td>${ board.visitcount }</td>
+		</tr>
+	</c:forEach>
+</c:if>
 </table>
 
 <!-- 글쓰기 -->
-<%
-	if(session.getAttribute("userid")!=null){
-%>
+<c:if test="${ not empty sessionScope.userid }">
 <table border="1" style="width: 90%">
 	<tr>
 		<td align="right">
-			<input type="button" onclick="location.href='02-01Write.jsp'" value="글쓰기">
+			<input type="button" onclick="location.href='${ pageContext.request.contextPath }/08Board/02-01Write.jsp'" value="글쓰기">
 		</td>
 	</tr>
 </table>
-<%
-	}
-%>
+</c:if>
 
 <!-- 페이지 블록 -->
 <%
@@ -102,7 +101,7 @@
 <table border="1" style="width: 90%">
 	<tr>
 		<td align="center"> 
-		<%@include file="02-05PageNavi.jsp" %>
+		<%@include file="/08Board/02-05PageNavi.jsp" %>
 		</td>
 	</tr>
 </table>
