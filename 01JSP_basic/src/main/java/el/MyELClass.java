@@ -52,19 +52,19 @@ public class MyELClass {
 	// 입력 받은 정수까지 구구단을 HTML 테이블로 출력하는 메소드
 	public static String showGugudan(int dan) {
 		// StringBuffer는 내부의 문자열 변경 가능 (연결, 삽입, 삭제 등)
-		StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("<table border='1'>");
+		StringBuffer gugudan = new StringBuffer();
+		gugudan.append("<table border='1'>");
 		for(int m=2; m<=dan; m++) {
-			stringBuffer.append("<tr>");
+			gugudan.append("<tr>");
 			for(int n=1; n<=9; n++) {
-				stringBuffer.append("<td>");
-				stringBuffer.append(m + "*" + n + "=" + m*n);
-				stringBuffer.append("</td>");
+				gugudan.append("<td>");
+				gugudan.append(m + "*" + n + "=" + m*n);
+				gugudan.append("</td>");
 			}
-			stringBuffer.append("</tr>");
+			gugudan.append("</tr>");
 		}
-		stringBuffer.append("</table>");
-		return stringBuffer.toString();
+		gugudan.append("</table>");
+		return gugudan.toString();
 	}
 	
 	public static void main(String[] args) {

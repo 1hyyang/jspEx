@@ -16,7 +16,7 @@
 	pageContext.setAttribute("nullStr", null);
 	pageContext.setAttribute("emptyStr", "");
 	pageContext.setAttribute("lengthZero", new Integer[0]);
-	pageContext.setAttribute("sizeZero", new ArrayList());
+	pageContext.setAttribute("sizeZero", new ArrayList<>());
 %>
 <h2>empty 연산자</h2>
 <!-- 주로 리스트 출력시 리스트가 비었는지 확인하는 용도로 사용 -->

@@ -23,8 +23,7 @@ public class BoardDao {
 	 * @return
 	 */
 	public List<Board> getListPage(Criteria criteria) {
-		List<Board> boardlist = new ArrayList<Board>();
-		
+		List<Board> boardlist = new ArrayList<Board>();		
 		String sql = "SELECT * FROM (SELECT T.*, ROWNUM RNUM FROM ("
 						+ "SELECT NUM, TITLE, CONTENT, ID"
 							+ ", DECODE(TRUNC(SYSDATE), TRUNC(POSTDATE)"
@@ -37,7 +36,6 @@ public class BoardDao {
 		}
 		sql += "ORDER BY NUM DESC) T) "
 				+ "WHERE RNUM BETWEEN " + criteria.getStartnum() + " AND " + criteria.getEndnum();
-		
 		try(Connection conn = ConnectionPool.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery();) {
@@ -64,11 +62,11 @@ public class BoardDao {
 	 * @return
 	 */
 	public int getTotalcount(Criteria criteria) {
-		int totalcount = 0;
+		int totalcount = 0;		
 		String sql = "SELECT COUNT(*) FROM BOARD ";
 		if(criteria.getSearchword()!=null && !"".equals(criteria.getSearchword())) {
 			sql += "WHERE " + criteria.getSearchfield() + " LIKE '%" + criteria.getSearchword() + "%' ";
-		}
+		}		
 		try(Connection conn = ConnectionPool.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery();) {
@@ -88,7 +86,7 @@ public class BoardDao {
 	 * @return
 	 */
 	public int insertPost(Board board) {
-		int res = 0;
+		int res = 0;		
 		String sql = "INSERT INTO BOARD VALUES (SEQ_BOARD_NUM.NEXTVAL, ?, ?, ?, SYSDATE, 0)";
 		try(Connection conn = ConnectionPool.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -110,7 +108,7 @@ public class BoardDao {
 	 * @return
 	 */
 	public int insertPostNum(String id) {
-		int num = 0;
+		int num = 0;		
 		String sql = "SELECT MAX(NUM) FROM BOARD WHERE ID = '" + id + "'";
 		try(Connection conn = ConnectionPool.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -162,7 +160,7 @@ public class BoardDao {
 	 * @return
 	 */
 	public int updateVisitcount(String num) {
-		int res = 0;
+		int res = 0;		
 		String sql = "UPDATE BOARD SET VISITCOUNT = VISITCOUNT+1 WHERE NUM = " + num;
 		try(Connection conn = ConnectionPool.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);) {	
@@ -181,7 +179,7 @@ public class BoardDao {
 	 * @return
 	 */
 	public int updatePost(Board board) {
-		int res = 0;
+		int res = 0;		
 		String sql = "UPDATE BOARD SET TITLE = ?, CONTENT = ? WHERE NUM = ?";
 		try(Connection conn = ConnectionPool.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -203,7 +201,7 @@ public class BoardDao {
 	 * @return
 	 */
 	public int deletePost(String num) {
-		int res = 0;
+		int res = 0;		
 		String sql = "DELETE FROM BOARD WHERE NUM = " + num;
 		try(Connection conn = ConnectionPool.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);) {	

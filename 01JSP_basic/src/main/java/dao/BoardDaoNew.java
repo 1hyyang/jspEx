@@ -18,8 +18,7 @@ public class BoardDaoNew {
 	}
 
 	public List<Board> getListPage(Criteria criteria){
-		List<Board> boardlist = new ArrayList<>();
-		
+		List<Board> boardlist = new ArrayList<>();		
 		String sql = "SELECT * FROM (SELECT T.*, ROWNUM RNUM FROM ("
 						+ "SELECT NUM, TITLE, CONTENT, ID"
 							+ ", DECODE(TRUNC(SYSDATE), TRUNC(POSTDATE)"
@@ -32,7 +31,6 @@ public class BoardDaoNew {
 		}
 		sql += "ORDER BY NUM DESC) T) "
 				+ "WHERE RNUM BETWEEN " + criteria.getStartnum() + " AND " + criteria.getEndnum();
-
 		try(Connection conn = ConnectionPool.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery();) {
