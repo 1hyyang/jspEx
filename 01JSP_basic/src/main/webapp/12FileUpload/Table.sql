@@ -23,4 +23,4 @@ CREATE SEQUENCE SEQ_MYFILE_NUM INCREMENT BY 1
                                 NOCYCLE
                                 NOCACHE;
                                 
-INSERT INTO MYFILE VALUES (SEQ_MYFILE_NUM.NEXTVAL, '작성자', '제목', '카테고리', '원본 파일명', '저장된 파일명', SYSDATE);
+INSERT INTO MYFILE VALUES (SEQ_MYFILE_NUM.NEXTVAL, '작성자', '제목입니다', '카테고리', '원본 파일명', '저장된 파일명', SYSDATE);

@@ -14,10 +14,12 @@
 <body>
 <h2>DB에 등록된 파일 목록 보기</h2>
 <a href="FileUpload.jsp">파일 업로드</a>
+<%-- 
 <%
 	FileDao dao = new FileDao();
 	List<FileDto> filelist = dao.getFileList();
 %>
+ --%>
 <!-- 게시글 목록 -->
 <table border="1">
 	<tr> 
@@ -30,7 +32,8 @@
 		<th>등록한 날짜</th>
 		<th></th>		 
 	</tr>
-<c:set var="filelist" value="<%= filelist %>"/>
+<%-- <c:set var="filelist" value="<%= filelist %>"/> --%>
+<c:set var="filelist" value="${ requestScope.filelist }"/>
 <c:if test="${ empty filelist }">
 	<tr>
 		<td colspan="7" align="center">등록된 파일이 없습니다.</td>

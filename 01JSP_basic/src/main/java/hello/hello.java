@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * - 문법 체크, 런타임시 특정 기능을 실행, 개발 환경이나 빌드시 코드를 자동으로 생성할 수 있도록 정보를 제공
  * 
  * @WebServlet
- * - 사용자의 요청 URL과 매핑
+ * - 사용자의 요청 URI과 매핑
  */
 @WebServlet("/hello")
 public class hello extends HttpServlet {
@@ -30,8 +30,7 @@ public class hello extends HttpServlet {
     }
 
 	/**
-	 * get 방식으로 요청시 실행
-	 * 
+	 * get 방식으로 요청시 실행 
 	 * 사용자의 요청 정보를 객체로 저장하여 파라미터로 전달
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

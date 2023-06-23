@@ -73,4 +73,34 @@
 	    <filter-name>SetCharacterEncodingFilter</filter-name>
 	    <url-pattern>/*</url-pattern>
   </filter-mapping>
+  
+  <!-- 서블릿 등록 (어노테이션과 동일한 기능) -->
+  <servlet>
+  	<servlet-name>XmlMapping</servlet-name>
+  	<servlet-class>servlet.XmlMapping</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>XmlMapping</servlet-name>
+  	<url-pattern>/13Servlet/XmlMapping.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>MemberAuth</servlet-name>
+  	<servlet-class>servlet.MemberAuth</servlet-class>
+  	<init-param>
+  		<param-name>adminid</param-name>
+  		<param-value>test</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MemberAuth</servlet-name>
+  	<url-pattern>/13Servlet/MemberAuth.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>ListController</servlet-name>
+  	<servlet-class>mvcboard.ListController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ListController</servlet-name>
+  	<url-pattern>/mvcboard/list.do</url-pattern>
+  </servlet-mapping>
 </web-app>
