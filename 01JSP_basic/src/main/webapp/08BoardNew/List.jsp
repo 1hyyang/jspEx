@@ -28,7 +28,7 @@
 
 <!-- 검색폼 --> 
 <form name="searchform" method="get">
-	<input type="hidden" name="pageno" value="<%= criteria.getPageno() %>">  
+	<input type="hidden" name="pageno">  
 	<table border="1" style="width: 90%">
 	<tr>
 	    <td align="center">
