@@ -34,7 +34,7 @@ public class Criteria {
 			this.searchword = searchword;
 		}
 		
-		if(pagenoStr!=null) {
+		if(pagenoStr!=null && !"".equals(pagenoStr)) {
 			pageno = Integer.parseInt(pagenoStr);
 			if(pageno>0) {
 				this.pageno = pageno;

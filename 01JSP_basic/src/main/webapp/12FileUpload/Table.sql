@@ -16,11 +16,11 @@ COMMENT ON COLUMN MYFILE.OFILE IS '원본 파일명';
 COMMENT ON COLUMN MYFILE.SFILE IS '저장된 파일명';
 COMMENT ON COLUMN MYFILE.POSTDATE IS '등록한 날짜';
 
-CREATE SEQUENCE SEQ_MYFILE_NUM INCREMENT BY 1
+CREATE SEQUENCE SEQ_MYFILE_IDX INCREMENT BY 1
                                 START WITH 1
                                 MINVALUE 1
                                 NOMAXVALUE
                                 NOCYCLE
                                 NOCACHE;
                                 
-INSERT INTO MYFILE VALUES (SEQ_MYFILE_NUM.NEXTVAL, '작성자', '제목입니다', '카테고리', '원본 파일명', '저장된 파일명', SYSDATE);
+INSERT INTO MYFILE VALUES (SEQ_MYFILE_IDX.NEXTVAL, '작성자', '제목'||SEQ_MYFILE_IDX.NEXTVAL||'입니다', '카테고리', '원본 파일명', '저장된 파일명', SYSDATE);

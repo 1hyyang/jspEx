@@ -9,7 +9,8 @@ import java.util.List;
 
 import common.ConnectionPool;
 import dto.Board;
-import dto.Criteria;
+import mvcboard.BoardDto;
+import mvcboard.Criteria;
 
 public class BoardDao {
 
@@ -22,7 +23,7 @@ public class BoardDao {
 	 * @param criteria
 	 * @return
 	 */
-	public List<BoardDto> getListPage(mvcboard.Criteria criteria) {
+	public List<BoardDto> getListPage(Criteria criteria) {
 		List<BoardDto> boardlist = new ArrayList<BoardDto>();		
 		String sql = "SELECT * FROM (SELECT T.*, ROWNUM RNUM FROM ("
 						+ "SELECT IDX, NAME, TITLE, CONTENT"
@@ -65,9 +66,9 @@ public class BoardDao {
 	 * 전체 게시물의 수를 반환합니다.
 	 * @return
 	 */
-	public int getTotalcount(mvcboard.Criteria criteria) {
+	public int getTotalcount(Criteria criteria) {
 		int totalcount = 0;		
-		String sql = "SELECT COUNT(*) FROM BOARD ";
+		String sql = "SELECT COUNT(*) FROM MVCBOARD ";
 		if(criteria.getSearchword()!=null && !"".equals(criteria.getSearchword())) {
 			sql += "WHERE " + criteria.getSearchfield() + " LIKE '%" + criteria.getSearchword() + "%' ";
 		}		
@@ -84,4 +85,91 @@ public class BoardDao {
 		}
 		return totalcount;
 	}
+	
+	/**
+	 * 게시물을 등록합니다.
+	 * @return
+	 */
+	public int insertPost(BoardDto board) {
+		int res = 0;		
+		String sql = "INSERT INTO MVCBOARD VALUES (SEQ_BOARD_NUM.NEXTVAL, ?, ?, ?, SYSDATE, ?, ?, 0, ?, 0)";
+		try(Connection conn = ConnectionPool.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);) {
+			pstmt.setString(1, board.getName());
+			pstmt.setString(2, board.getTitle());
+			pstmt.setString(3, board.getContent().replace("\r\n", "<br>"));			
+			pstmt.setString(4, board.getOfile());			
+			pstmt.setString(5, board.getSfile());			
+			pstmt.setString(6, board.getPass());			
+			res = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.err.println("게시물 등록 중 예외 발생");
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
+	/**
+	 * 게시글을 조회합니다.
+	 * @param idx
+	 * @return
+	 */
+	public BoardDto selectPost(String idx) {
+		BoardDto board = null;
+		String sql = "SELECT * FROM MVCBOARD WHERE IDX = " + idx;
+		if(idx==null || "".equals(idx)) {
+			return null;
+		}
+		try(Connection conn = ConnectionPool.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery();) {
+			if(rs.next()) {
+				board = new BoardDto();
+				board.setIdx(rs.getInt(1));
+				board.setName(rs.getString(2));
+				board.setTitle(rs.getString(3));
+				board.setContent(rs.getString(4));
+				board.setPostdate(rs.getString(5));				
+				board.setOfile(rs.getString(6));
+				board.setSfile(rs.getString(7));
+				board.setDowncount(rs.getInt(8));
+				board.setPass(rs.getString(9));
+				board.setVisitcount(rs.getInt(10));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.err.println("게시글 조회 중 예외 발생");
+			e.printStackTrace();
+		}		
+		return board;
+	}
+
+	public boolean confirmPassword(String pass, String idx) {
+		boolean res = false;
+		String sql = "SELECT * FROM MVCBOARD WHERE IDX = " + idx + " AND PASS = '" + pass + "'";
+		try(Connection conn = ConnectionPool.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery();) {
+			res = rs.next();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	public int deletePost(String idx) {
+		int res = 0;
+		String str = "DELETE FROM MVCBOARD WHERE IDX = " + idx ;		
+		try(Connection conn = ConnectionPool.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(str);) {
+			res = pstmt.executeUpdate();			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
 }

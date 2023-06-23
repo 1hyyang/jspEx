@@ -27,14 +27,18 @@ public class Criteria {
 			}		
 		}
 	}
-	
+
 	public Criteria(String searchfield, String searchword, String pagenoStr) {
 		if(searchword!=null) {
 			this.searchfield = searchfield;
 			this.searchword = searchword;
 		}
 		
-		if(pagenoStr!=null) {
+		// !"".equals(pagenoStr) 조건을 작성하는 까닭
+		// 처음 목록을 조회할 때 pagenoStr에 빈 문자열""이 들어온다.
+		// 이때 pagenoStr!=null이므로 if문 안의 Integer.parseInt(pagenoStr)를 시도하는데
+		// 빈 문자열을 정수 값으로 파싱하려고 하면 오류가 발생하므로 이 오류를 방지하기 위함이다.
+		if(pagenoStr!=null && !"".equals(pagenoStr)) {
 			pageno = Integer.parseInt(pagenoStr);
 			if(pageno>0) {
 				this.pageno = pageno;

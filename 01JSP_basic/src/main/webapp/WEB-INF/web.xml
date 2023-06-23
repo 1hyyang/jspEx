@@ -103,4 +103,12 @@
   	<servlet-name>ListController</servlet-name>
   	<url-pattern>/mvcboard/list.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>WriteController</servlet-name>
+  	<servlet-class>mvcboard.WriteController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>WriteController</servlet-name>
+  	<url-pattern>/mvcboard/write.do</url-pattern>
+  </servlet-mapping>
 </web-app>

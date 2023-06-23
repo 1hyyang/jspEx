@@ -1,7 +1,9 @@
 package common;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspWriter;
 
 public class JSFunction {
@@ -34,6 +36,23 @@ public class JSFunction {
 		}
 	}
 	
+	// out 객체는 JSP 내장 객체이기 때문에 Servlet에서 바로 쓸 수 없으므로 위의 메소드 사용 불가	
+	public static void alertLocation(HttpServletResponse resp, String url, String msg) {
+		resp.setContentType("text/html;charset=UTF-8");
+		try {
+			String script = ""
+							+ "<script>"
+							+ "		alert('" + msg + "');"
+							+ "		location.href='" + url + "';"
+							+ "</script>";
+			PrintWriter writer = resp.getWriter();
+			writer.print(script);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	/**
 	 * 알림창을 띄운 후 이전 페이지로 이동합니다.
 	 * @param msg
@@ -47,6 +66,21 @@ public class JSFunction {
 							+ "		history.go(-1);"
 							+ "</script>";
 			out.print(script);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public static void alertBack(HttpServletResponse resp, String msg) {
+		resp.setContentType("text/html;charset=UTF-8");
+		try {
+			String script = "<script>"
+							+ "		alert('" + msg + "');"
+							+ "		history.back()"
+							+ "</script>";
+			PrintWriter writer = resp.getWriter();
+			writer.print(script);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

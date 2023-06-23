@@ -9,17 +9,17 @@
 </head>
 <body>
 <h2>파일 첨부형 게시판</h2>
-<c:set var="pageno" value="${ criteria.pageno }"/>
-<form action="/mvcboard/list.do?pageno=${ pageno }'">
+총 게시물 수: ${ totalcount }
+<form name="searchform">
+	<input type="hidden" name="pageno">
 	<table border="1" style="width: 90%">
 		<tr>
 			<td align="center">
 				<select name="searchfield">
-					<option value="title">제목</option>
-					<option value="content">내용</option>
-					<option value="name">작성자</option>
+					<option value="title" ${ "title" eq searchfield?"selected":"" }>제목</option>
+					<option value="content" ${ "content" eq searchfield?"selected":"" }>내용</option>
+					<option value="name" ${ "name" eq searchfield?"selected":"" }>작성자</option>
 				</select>
-				<c:set var="searchword" value="${ criteria.searchword }"/>
 				<input type="text" name="searchword" value="${ searchword }">
 				<input type="submit" value="검색">
 			</td>
@@ -35,7 +35,6 @@
 		<th>작성일</th>
 		<th>첨부</th>
 	</tr>
-<c:set var="boardlist" value="${ requestScope.boardlist }"/>
 <c:if test="${ empty boardlist }">
 	<tr>
 		<td colspan="6" align="center">등록된 게시물이 없습니다.</td>
@@ -45,7 +44,7 @@
 	<c:forEach items="${ boardlist }" var="board">
 		<tr>
 			<td>${ board.idx }</td>
-			<td>${ board.title }</td>
+			<td><a href="../mvcboard/view.do?idx=${ board.idx }">${ board.title }</a></td>
 			<td>${ board.name }</td>
 			<td>${ board.visitcount }</td>
 			<td>${ board.postdate }</td>
@@ -54,8 +53,8 @@
 	</c:forEach>
 </c:if>
 	<tr align="center">
-		<td colspan="5">페이지</td>
-		<td><input type="button" value="글쓰기"></td>
+		<td colspan="5"><%@ include file="PageNavi.jsp" %></td>
+		<td><input type="button" onclick="location.href='../mvcboard/write.do'" value="글쓰기"></td>
 	</tr>
 </table>
 </body>
