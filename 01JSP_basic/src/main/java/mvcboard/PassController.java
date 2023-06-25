@@ -46,9 +46,9 @@ public class PassController extends HttpServlet {
 		BoardDao dao = new BoardDao();
 		// 게시글의 비밀번호가 일치하는지 확인
 		if(dao.confirmPassword(idx, pass)) {
-			if(mode.equals("edit")) {
+			if("edit".equals(mode)) {
 				response.sendRedirect("../mvcboard/edit.do?idx=" + idx);
-			} else if(mode.equals("delete")) {
+			} else if("delete".equals(mode)) {
 				if(dao.deletePost(idx)>0) {
 					JSFunction.alertLocation(response, "삭제되었습니다.", "../mvcboard/list.do");
 				} else {
