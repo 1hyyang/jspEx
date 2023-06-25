@@ -7,7 +7,8 @@
 <meta charset="UTF-8">
 <title>파일 첨부형 게시판</title>
 <script type="text/javascript">
-    function validateForm(form) {  // 필수 항목 입력 확인
+	//필수 항목 입력 확인
+    function validateForm(form) {  
         if (form.name.value=="") {
             alert("작성자를 입력하세요.");
             form.name.focus();
