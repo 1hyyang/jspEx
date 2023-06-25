@@ -19,7 +19,7 @@ public class ListController extends HttpServlet{
 		String searchfield = req.getParameter("searchfield");
 		String searchword = req.getParameter("searchword");
 		String pageno = req.getParameter("pageno");
-		Criteria criteria = new Criteria(searchfield, searchword, pageno); // Criteria 생성자에 의해 각 값들이 초기화
+		Criteria criteria = new Criteria(searchfield, searchword, pageno);
 		
 		BoardDao dao = new BoardDao();
 		List<BoardDto> boardlist = dao.getListPage(criteria);
@@ -28,9 +28,9 @@ public class ListController extends HttpServlet{
 		PageDto pageDto = new PageDto(totalcount, criteria);		
 		
 		// request 영역에 저장
-		req.setAttribute("searchfield", criteria.getSearchfield());		
-		req.setAttribute("searchword", criteria.getSearchword());		
-		req.setAttribute("pageno", criteria.getPageno());
+		req.setAttribute("searchfield", searchfield);		
+		req.setAttribute("searchword", searchword);		
+		req.setAttribute("pageno", pageno);
 		req.setAttribute("boardlist", boardlist);
 		req.setAttribute("totalcount", totalcount);
 		req.setAttribute("pageDto", pageDto);
