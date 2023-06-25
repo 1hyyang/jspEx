@@ -25,8 +25,8 @@ alter table board
 -- 시퀀스 생성
 create sequence seq_board_num 
     increment by 1
-    start with 1
-    minvalue 1
+    start with 0
+    minvalue 0
     nomaxvalue
     nocycle
     nocache;

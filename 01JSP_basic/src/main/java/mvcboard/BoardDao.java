@@ -32,6 +32,7 @@ public class BoardDao {
 							+ ", TO_CHAR(POSTDATE, 'YYYY-MM-DD')) POSTDATE"
 							+ ", OFILE, SFILE, DOWNCOUNT, PASS, VISITCOUNT "
 						+ "FROM MVCBOARD ";	
+		// 검색 조건이 없을 경우 criteria.getSearchword()가 빈 문자열""이므로 if문을 실행하지 않는다.
 		if(criteria.getSearchword()!=null && !"".equals(criteria.getSearchword())) {
 			sql += "WHERE " + criteria.getSearchfield() + " LIKE '%" + criteria.getSearchword() + "%' ";
 		}

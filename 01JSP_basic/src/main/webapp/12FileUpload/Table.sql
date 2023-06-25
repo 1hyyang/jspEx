@@ -17,8 +17,8 @@ COMMENT ON COLUMN MYFILE.SFILE IS '저장된 파일명';
 COMMENT ON COLUMN MYFILE.POSTDATE IS '등록한 날짜';
 
 CREATE SEQUENCE SEQ_MYFILE_IDX INCREMENT BY 1
-                                START WITH 1
-                                MINVALUE 1
+                                START WITH 0
+                                MINVALUE 0
                                 NOMAXVALUE
                                 NOCYCLE
                                 NOCACHE;

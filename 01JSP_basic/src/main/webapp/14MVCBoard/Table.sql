@@ -23,8 +23,8 @@ COMMENT ON COLUMN MVCBOARD.PASS IS '비밀번호';
 COMMENT ON COLUMN MVCBOARD.VISITCOUNT IS '조회수';
 
 CREATE SEQUENCE SEQ_MVCBOARD_IDX INCREMENT BY 1
-                                START WITH 1
-                                MINVALUE 1
+                                START WITH 0
+                                MINVALUE 0
                                 NOMAXVALUE
                                 NOCYCLE
                                 NOCACHE;

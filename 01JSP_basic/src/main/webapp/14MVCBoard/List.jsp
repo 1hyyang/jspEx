@@ -10,8 +10,8 @@
 <body>
 <h2>파일 첨부형 게시판</h2>
 총 게시물 수: ${ totalcount }
-<form name="searchform">
-	<input type="hidden" name="pageno">
+<form name="searchform"> <!-- 검색 버튼 또는 페이징 버튼(PageNavi.jsp)에 의해 submit된다. -->
+	<input type="hidden" name="pageno"> 
 	<table border="1" style="width: 90%">
 		<tr>
 			<td align="center">
@@ -42,9 +42,9 @@
 </c:if>
 <c:if test="${ not empty boardlist }">
 	<c:forEach items="${ boardlist }" var="board">
-		<tr>
+		<tr align="center">
 			<td>${ board.idx }</td>
-			<td><a href="../mvcboard/view.do?idx=${ board.idx }">${ board.title }</a></td>
+			<td align="left"><a href="../mvcboard/view.do?idx=${ board.idx }">${ board.title }</a></td>
 			<td>${ board.name }</td>
 			<td>${ board.visitcount }</td>
 			<td>${ board.postdate }</td>

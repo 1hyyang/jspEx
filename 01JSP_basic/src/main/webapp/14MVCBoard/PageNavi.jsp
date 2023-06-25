@@ -10,7 +10,7 @@
 <script>
 	function go(pageno){
 		document.searchform.pageno.value = pageno;
-		document.searchform.submit();
+		document.searchform.submit(); // submit하고 나면 pageno의 value는 다시 원래 값(빈 문자열"")으로 복구된다.
 	}
 </script>
 <c:set var="pageDto" value="${ pageDto }"/>
