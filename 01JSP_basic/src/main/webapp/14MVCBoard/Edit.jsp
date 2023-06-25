@@ -27,7 +27,7 @@
 </script>
 </head>
 <h2>파일 첨부형 게시판 - 수정하기(Edit)</h2>
-<form name="editform" method="post" enctype="multipart/form-data" action="../mvcboard/edit.do?pageno=${ param.pageno }" onsubmit="return validateForm(this);">
+<form name="editform" method="post" enctype="multipart/form-data" action="../mvcboard/edit.do" onsubmit="return validateForm(this);">
 	<input type="hidden" name="idx" value="${ board.idx }"/>
 	<input type="hidden" name="prevOfile" value="${ board.ofile }" />
 	<input type="hidden" name="prevSfile" value="${ board.sfile }" />

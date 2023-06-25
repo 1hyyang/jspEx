@@ -48,8 +48,6 @@ public class EditController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pageno = request.getParameter("pageno");
-		
 		// 저장할 디렉토리의 실제 경로
 		String saveDirectory = "C:/upload";
 		// 파일의 최대 크기
@@ -97,7 +95,7 @@ public class EditController extends HttpServlet {
 			
 			BoardDao dao = new BoardDao();
 			if(dao.updatePost(board)>0) {
-				JSFunction.alertLocation(response, "게시물이 등록되었습니다.", "../mvcboard/view.do?idx=" + board.getIdx() + "&pageno=" + pageno);
+				JSFunction.alertLocation(response, "게시물이 등록되었습니다.", "../mvcboard/view.do?idx=" + board.getIdx());
 			} else {
 				JSFunction.alertBack(response, "게시물 등록 중 오류가 발생하였습니다.");
 			}
