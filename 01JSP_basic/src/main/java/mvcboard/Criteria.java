@@ -24,8 +24,8 @@ public class Criteria {
 		!"".equals(pagenoStr) 조건을 작성하는 까닭
 		폼이 생성되면서 pageno의 value가 빈 문자열""로 설정되는데
 		이 폼을 submit하면 페이지가 reload되어 pagenoStr = ""이 된다.
-		pagenoStr!=null이므로 if문 안의 Integer.parseInt(pagenoStr)를 시도하는데
-		빈 문자열을 정수 값으로 파싱하려고 하면 오류가 발생하므로 이 오류를 방지하기 위함이다.
+		만약 조건이 없으면 pagenoStr!=null이므로 if문 안의 Integer.parseInt(pagenoStr)를 시도하는데
+		빈 문자열을 정수 값으로 파싱하려고 하면 오류가 발생한다.
 		*/
 		// System.out.println("pagenoStr: " + pagenoStr);
 		if(pagenoStr!=null && !"".equals(pagenoStr)) {

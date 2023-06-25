@@ -54,7 +54,7 @@
 </c:if>
 	<tr align="center">
 		<td colspan="5"><%@ include file="PageNavi.jsp" %></td>
-		<td><input type="button" onclick="location.href='../14MVCBoard/Write.jsp'" value="글쓰기"></td>
+		<td><input type="button" onclick="location.href='../14MVCBoard/Write.jsp?pageno=${ pageno }'" value="글쓰기"></td>
 	</tr>
 </table>
 </body>
