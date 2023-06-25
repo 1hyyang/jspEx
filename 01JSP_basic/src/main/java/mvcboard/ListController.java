@@ -29,6 +29,7 @@ public class ListController extends HttpServlet{
 		// request 영역에 저장
 		req.setAttribute("searchfield", searchfield);		
 		req.setAttribute("searchword", searchword);		
+		req.setAttribute("pageno", criteria.getPageno());
 		req.setAttribute("boardlist", boardlist);
 		req.setAttribute("totalcount", totalcount);
 		req.setAttribute("pageDto", pageDto);

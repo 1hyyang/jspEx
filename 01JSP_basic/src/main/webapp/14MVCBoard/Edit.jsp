@@ -27,7 +27,7 @@
 </script>
 </head>
 <h2>파일 첨부형 게시판 - 수정하기(Edit)</h2>
-<form name="writeFrm" method="post" enctype="multipart/form-data" action="../mvcboard/edit.do" onsubmit="return validateForm(this);">
+<form name="editform" method="post" enctype="multipart/form-data" action="../mvcboard/edit.do?pageno=${ param.pageno }" onsubmit="return validateForm(this);">
 	<input type="hidden" name="idx" value="${ board.idx }"/>
 	<input type="hidden" name="prevOfile" value="${ board.ofile }" />
 	<input type="hidden" name="prevSfile" value="${ board.sfile }" />
@@ -61,7 +61,7 @@
 	        <td colspan="2" align="center">
 	            <button type="submit">작성 완료</button>
 	            <button type="reset">RESET</button>
-	            <button type="button" onclick="location.href='../mvcboard/list.do';">
+	            <button type="button" onclick="location.href='../mvcboard/list.do?pageno=${ param.pageno }';">
 	                목록으로
 	            </button>
 	        </td>

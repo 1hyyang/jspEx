@@ -21,6 +21,7 @@
 <form name="writeform" method="post" action="../mvcboard/pass.do" onsubmit="return validateForm(this);">
 	<input type="hidden" name="mode" value="${ param.mode }" />
 	<input type="hidden" name="idx" value="${ param.idx }" />
+	<input type="hidden" name="pageno" value="${ param.pageno }" />
 	<table border="1" width="90%">
 	    <tr>
 	        <td>비밀번호</td>
@@ -32,7 +33,7 @@
 	        <td colspan="2" align="center">
 	            <button type="submit">확인</button>
 	            <button type="reset">RESET</button>
-	            <button type="button" onclick="location.href='../mvcboard/list.do';">
+	            <button type="button" onclick="location.href='../mvcboard/list.do?pageno=${ param.pageno }';">
 	                목록으로
 	            </button>
 	        </td>

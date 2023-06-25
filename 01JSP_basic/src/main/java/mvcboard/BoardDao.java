@@ -111,7 +111,11 @@ public class BoardDao {
 		return res;
 	}
 	
-
+	/**
+	 * 게시한 글의 번호를 반환합니다.
+	 * @param id
+	 * @return
+	 */
 	public int insertPostIdx(String name, String pass) {
 		int idx = 0;		
 		String sql = "SELECT MAX(IDX) FROM MVCBOARD WHERE NAME = '" + name + "' AND PASS = '" + pass + "'";
@@ -162,7 +166,32 @@ public class BoardDao {
 		}		
 		return board;
 	}
-
+	
+	/**
+	 * 게시글의 조회수를 업데이트(+1)합니다. 
+	 * @param num
+	 * @return
+	 */
+	public int updateVisitcount(String idx) {
+		int res = 0;		
+		String sql = "UPDATE MVCBOARD SET VISITCOUNT = VISITCOUNT+1 WHERE IDX = " + idx;
+		try(Connection conn = ConnectionPool.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);) {	
+			res = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.err.println("조회수 업데이트 중 예외 발생");
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
+	/**
+	 * 수정 또는 삭제를 위해 비밀번호를 검증합니다.
+	 * @param idx
+	 * @param pass
+	 * @return
+	 */
 	public boolean confirmPassword(String idx, String pass) {
 		boolean res = false;
 		String sql = "SELECT * FROM MVCBOARD WHERE IDX = " + idx + " AND PASS = '" + pass + "'";
@@ -176,7 +205,36 @@ public class BoardDao {
 		}
 		return res;
 	}
-
+	
+	/**
+	 * 게시글을 수정합니다.
+	 * @param board
+	 * @return
+	 */
+	public int updatePost(BoardDto board) {
+		int res = 0;		
+		String sql = "UPDATE MVCBOARD SET TITLE = ?, CONTENT = ?, OFILE = ?, SFILE = ? WHERE IDX = ?";
+		try(Connection conn = ConnectionPool.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);) {
+			pstmt.setString(1, board.getTitle());
+			pstmt.setString(2, board.getContent().replace("\r\n", "<br>"));
+			pstmt.setString(3, board.getOfile());
+			pstmt.setString(4, board.getSfile());
+			pstmt.setInt(5, board.getIdx());			
+			res = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.err.println("게시물 등록 중 예외 발생");
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
+	/**
+	 * 게시글을 삭제합니다.
+	 * @param num
+	 * @return
+	 */
 	public int deletePost(String idx) {
 		int res = 0;
 		String str = "DELETE FROM MVCBOARD WHERE IDX = " + idx ;		
