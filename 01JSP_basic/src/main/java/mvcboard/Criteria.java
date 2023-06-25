@@ -13,20 +13,6 @@ public class Criteria {
 	public Criteria() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Criteria(String pagenoStr) {
-		// pagenoStr이 null이면 pageno에 초기값을 설정하고 null이 아닌 경우에만 다음 조건문을 실행
-		if(pagenoStr!=null) {
-			pageno = Integer.parseInt(pagenoStr);
-			if(pageno>0) {
-				this.pageno = pageno;
-				endnum = pageno*amount;
-				startnum = (pageno*amount)-(amount-1);
-			} else {
-				pageno = 1;
-			}		
-		}
-	}
 
 	public Criteria(String searchfield, String searchword, String pagenoStr) {
 		if(searchword!=null) {
