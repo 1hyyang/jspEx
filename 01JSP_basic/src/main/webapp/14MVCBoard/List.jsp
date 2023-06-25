@@ -10,8 +10,8 @@
 <body>
 <h2>파일 첨부형 게시판</h2>
 총 게시물 수: ${ totalcount }
-<form name="searchform"> <!-- 검색 버튼 또는 페이징 버튼(PageNavi.jsp)에 의해 submit된다. -->
-	<input type="hidden" name="pageno"> 
+<form name="searchform"> <!-- 검색 버튼 또는 페이징 버튼(PageNavi.jsp)에 의해 submit -->
+	<input type="text" name="pageno">
 	<table border="1" style="width: 90%">
 		<tr>
 			<td align="center">
@@ -33,7 +33,7 @@
 		<th>작성자</th>
 		<th>조회수</th>
 		<th>작성일</th>
-		<th>첨부</th>
+		<th>첨부파일</th>
 	</tr>
 <c:if test="${ empty boardlist }">
 	<tr>
@@ -54,7 +54,7 @@
 </c:if>
 	<tr align="center">
 		<td colspan="5"><%@ include file="PageNavi.jsp" %></td>
-		<td><input type="button" onclick="location.href='../mvcboard/write.do'" value="글쓰기"></td>
+		<td><input type="button" onclick="location.href='../14MVCBoard/Write.jsp'" value="글쓰기"></td>
 	</tr>
 </table>
 </body>

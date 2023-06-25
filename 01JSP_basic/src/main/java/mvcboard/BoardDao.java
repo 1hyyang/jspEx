@@ -32,8 +32,8 @@ public class BoardDao {
 							+ ", TO_CHAR(POSTDATE, 'YYYY-MM-DD')) POSTDATE"
 							+ ", OFILE, SFILE, DOWNCOUNT, PASS, VISITCOUNT "
 						+ "FROM MVCBOARD ";	
-		// 검색 조건이 없을 경우 criteria.getSearchword()가 빈 문자열""이므로 if문을 실행하지 않는다.
-		if(criteria.getSearchword()!=null && !"".equals(criteria.getSearchword())) {
+		// 검색 조건이 없을 경우 criteria.getSearchword()에 의해 searchword가 빈 문자열""로 초기화되므로 if문을 실행하지 않는다.
+		if(!"".equals(criteria.getSearchword())) {
 			sql += "WHERE " + criteria.getSearchfield() + " LIKE '%" + criteria.getSearchword() + "%' ";
 		}
 		sql += "ORDER BY IDX DESC) T) "
@@ -70,7 +70,7 @@ public class BoardDao {
 	public int getTotalcount(Criteria criteria) {
 		int totalcount = 0;		
 		String sql = "SELECT COUNT(*) FROM MVCBOARD ";
-		if(criteria.getSearchword()!=null && !"".equals(criteria.getSearchword())) {
+		if(!"".equals(criteria.getSearchword())) {
 			sql += "WHERE " + criteria.getSearchfield() + " LIKE '%" + criteria.getSearchword() + "%' ";
 		}		
 		try(Connection conn = ConnectionPool.getConnection();
@@ -93,7 +93,7 @@ public class BoardDao {
 	 */
 	public int insertPost(BoardDto board) {
 		int res = 0;		
-		String sql = "INSERT INTO MVCBOARD VALUES (SEQ_BOARD_NUM.NEXTVAL, ?, ?, ?, SYSDATE, ?, ?, 0, ?, 0)";
+		String sql = "INSERT INTO MVCBOARD VALUES (SEQ_MVCBOARD_IDX.NEXTVAL, ?, ?, ?, SYSDATE, ?, ?, 0, ?, 0)";
 		try(Connection conn = ConnectionPool.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);) {
 			pstmt.setString(1, board.getName());
@@ -109,6 +109,23 @@ public class BoardDao {
 			e.printStackTrace();
 		}
 		return res;
+	}
+	
+
+	public int insertPostIdx(String name, String pass) {
+		int idx = 0;		
+		String sql = "SELECT MAX(IDX) FROM MVCBOARD WHERE NAME = '" + name + "' AND PASS = '" + pass + "'";
+		try(Connection conn = ConnectionPool.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery();) {
+			if(rs.next()) {
+				idx = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			System.out.println("게시글 조회 중 예외 발생");
+			e.printStackTrace();
+		}
+		return idx;
 	}
 	
 	/**
@@ -146,7 +163,7 @@ public class BoardDao {
 		return board;
 	}
 
-	public boolean confirmPassword(String pass, String idx) {
+	public boolean confirmPassword(String idx, String pass) {
 		boolean res = false;
 		String sql = "SELECT * FROM MVCBOARD WHERE IDX = " + idx + " AND PASS = '" + pass + "'";
 		try(Connection conn = ConnectionPool.getConnection();

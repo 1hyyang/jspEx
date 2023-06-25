@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ViewController
+ * Servlet implementation class DownloadController
  */
-@WebServlet("/mvcboard/view.do")
-public class ViewController extends HttpServlet {
+@WebServlet("/mvcboard/download.do")
+public class DownloadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ViewController() {
+    public DownloadController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,12 +26,8 @@ public class ViewController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BoardDao dao = new BoardDao();
-		BoardDto board = dao.selectPost(request.getParameter("idx"));
-
-		request.setAttribute("board", board);
-
-		request.getRequestDispatcher("../14MVCBoard/View.jsp").forward(request, response);
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

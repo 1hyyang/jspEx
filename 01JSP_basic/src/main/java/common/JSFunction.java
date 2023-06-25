@@ -37,7 +37,7 @@ public class JSFunction {
 	}
 	
 	// out 객체는 JSP 내장 객체이기 때문에 Servlet에서 바로 쓸 수 없으므로 위의 메소드 사용 불가	
-	public static void alertLocation(HttpServletResponse resp, String url, String msg) {
+	public static void alertLocation(HttpServletResponse resp, String msg, String url) {
 		resp.setContentType("text/html;charset=UTF-8");
 		try {
 			String script = ""

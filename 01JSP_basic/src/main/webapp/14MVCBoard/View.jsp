@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>파일 첨부형 게시판</title>
+<title>파일 첨부형 게시판 - 상세 보기(View)</title>
 </head>
 <body>
 <h2>파일 첨부형 게시판 - 상세 보기(View)</h2>
@@ -39,10 +39,10 @@
         <td>첨부파일</td>
         <td>
             <c:if test="${ not empty board.ofile }">
-            ${ board.ofile }
-            <a href="../mvcboard/download.do?ofile=${ board.ofile }&sfile=${ board.sfile }&idx=${ board.idx }">
-                [다운로드]
-            </a>
+	            ${ board.ofile }
+	            <a href="../mvcboard/download.do?ofile=${ board.ofile }&sfile=${ board.sfile }&idx=${ board.idx }">
+	                [다운로드]
+	            </a>
             </c:if>
         </td>
          <td>다운로드수</td>
