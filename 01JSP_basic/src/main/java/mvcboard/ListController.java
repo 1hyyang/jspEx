@@ -18,7 +18,7 @@ public class ListController extends HttpServlet{
 		// 리스트 조회
 		String searchfield = req.getParameter("searchfield");
 		String searchword = req.getParameter("searchword");
-		String pageno = req.getParameter("pageno"); // List에서 처음 받아올 때에는 빈 문자열
+		String pageno = req.getParameter("pageno");
 		Criteria criteria = new Criteria(searchfield, searchword, pageno); // Criteria 생성자에 의해 각 값들이 초기화
 		
 		BoardDao dao = new BoardDao();
