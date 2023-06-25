@@ -28,7 +28,9 @@ public class EditController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BoardDao dao = new BoardDao();
 		BoardDto board = dao.selectPost(request.getParameter("idx"));
+		
 		request.setAttribute("board", board);
+		
 		request.getRequestDispatcher("../14MVCBoard/Edit.jsp").forward(request, response);
 	}
 
