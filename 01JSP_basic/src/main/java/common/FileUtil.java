@@ -89,8 +89,8 @@ public class FileUtil {
 	/**
 	 * 파일 삭제
 	 */
-	public static void deleteFile(String directory, String filename) {
-		File file = new File(directory + File.separator + filename);
+	public static void deleteFile(String saveDirectory, String filename) {
+		File file = new File(saveDirectory + File.separator + filename);
 		// 파일이 존재하면 제거
 		if(file.exists()) {
 			file.delete();

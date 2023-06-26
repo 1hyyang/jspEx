@@ -39,9 +39,8 @@
         <td>첨부파일</td>
         <td>
             <c:if test="${ not empty board.ofile }">
-	            ${ board.ofile }
 	            <a href="../mvcboard/download.do?ofile=${ board.ofile }&sfile=${ board.sfile }&idx=${ board.idx }">
-	                [다운로드]
+	                ${ board.ofile }
 	            </a>
             </c:if>
         </td>
