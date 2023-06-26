@@ -33,7 +33,7 @@ public class DownloadController extends HttpServlet {
 		
 		String ofile = request.getParameter("ofile");
 		String sfile = request.getParameter("sfile");
-		FileUtil.downloadFile(request, response, "c:/upload", ofile, sfile);
+		FileUtil.downloadFile(request, response, "C:/upload", ofile, sfile);
 	}
 
 	/**
