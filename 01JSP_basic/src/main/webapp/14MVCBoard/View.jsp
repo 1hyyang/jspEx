@@ -52,13 +52,13 @@
     <!-- 하단 메뉴(버튼) -->
     <tr>
         <td colspan="4" align="center">
-            <button type="button" onclick="location.href='../mvcboard/pass.do?mode=edit&idx=${ param.idx }&pageno=${ param.pageno }';">
+            <button type="button" onclick="location.href='../mvcboard/pass.do?mode=edit&idx=${ param.idx }';">
                 수정하기
             </button>
-            <button type="button" onclick="location.href='../mvcboard/pass.do?mode=delete&idx=${ param.idx }&pageno=${ param.pageno }';">
+            <button type="button" onclick="location.href='../mvcboard/pass.do?mode=delete&idx=${ param.idx }';">
                 삭제하기
             </button>
-            <button type="button" onclick="location.href='../mvcboard/list.do?pageno=${ param.pageno }';">
+            <button type="button" onclick="location.href='../mvcboard/list.do?searchfield=${ param.searchfield }&searchword=${ param.searchword }&pageno=${ param.pageno }';">
                 목록으로
             </button>
         </td>

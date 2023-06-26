@@ -57,7 +57,7 @@
 	    <tr>
 	        <td>첨부 파일</td>
 	        <td>
-	            <input type="file" name="ofile" />
+	            <input type="file" name="ofile" multiple="multiple" />
 	        </td>
 	    </tr>
 	    <tr>
@@ -70,7 +70,7 @@
 	        <td colspan="2" align="center">
 	            <button type="submit">작성 완료</button>
 	            <button type="reset">RESET</button>
-	            <button type="button" onclick="location.href='../mvcboard/list.do?pageno=${ param.pageno }';">
+	            <button type="button" onclick="location.href='../mvcboard/list.do';">
 	                목록으로
 	            </button>
 	        </td>

@@ -43,16 +43,15 @@ public class PassController extends HttpServlet {
 		String mode = request.getParameter("mode");
 		String idx = request.getParameter("idx");
 		String pass = request.getParameter("pass");
-		String pageno = request.getParameter("pageno");
 		
 		BoardDao dao = new BoardDao();
 		// 게시글의 비밀번호가 일치하는지 확인
 		if(dao.confirmPassword(idx, pass)) {
 			if("edit".equals(mode)) {
-				response.sendRedirect("../mvcboard/edit.do?idx=" + idx + "&pageno=" + pageno);
+				response.sendRedirect("../mvcboard/edit.do?idx=" + idx);
 			} else if("delete".equals(mode)) {
 				if(dao.deletePost(idx)>0) {
-					JSFunction.alertLocation(response, "삭제되었습니다.", "../mvcboard/list.do?pageno=" + pageno);
+					JSFunction.alertLocation(response, "삭제되었습니다.", "../mvcboard/list.do");
 				} else {
 					JSFunction.alertBack(response, "게시물 삭제 중 오류가 발생하였습니다.");					
 				}

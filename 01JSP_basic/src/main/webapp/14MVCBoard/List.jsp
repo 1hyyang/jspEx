@@ -44,17 +44,17 @@
 	<c:forEach items="${ boardlist }" var="board">
 		<tr align="center">
 			<td>${ board.idx }</td>
-			<td align="left"><a href="../mvcboard/view.do?idx=${ board.idx }&pageno=${ pageno }">${ board.title }</a></td>
+			<td align="left"><a href="../mvcboard/view.do?idx=${ board.idx }&searchfield=${ searchfield }&searchword=${ searchword }&pageno=${ pageno }">${ board.title }</a></td>
 			<td>${ board.name }</td>
 			<td>${ board.visitcount }</td>
 			<td>${ board.postdate }</td>
-			<td>${ board.ofile }</td>
+			<td><c:if test="${ not empty board.ofile }"><a href="../mvcboard/download.do?ofile=${ board.ofile }&sfile=${ board.sfile }">${ board.ofile }</a></c:if></td>
 		</tr>
 	</c:forEach>
 </c:if>
 	<tr align="center">
 		<td colspan="5"><%@ include file="PageNavi.jsp" %></td>
-		<td><input type="button" onclick="location.href='../14MVCBoard/Write.jsp?pageno=${ pageno }'" value="글쓰기"></td>
+		<td><input type="button" onclick="location.href='../14MVCBoard/Write.jsp'" value="글쓰기"></td>
 	</tr>
 </table>
 </body>

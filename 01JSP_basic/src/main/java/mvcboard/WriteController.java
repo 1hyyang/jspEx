@@ -12,12 +12,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
 
+import common.FileUtil;
 import common.JSFunction;
 
 public class WriteController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 저장할 디렉토리의 실제 경로
 		String saveDirectory = "C:/upload";
 		// 파일의 최대 크기
@@ -72,12 +78,7 @@ public class WriteController extends HttpServlet {
 		} catch (Exception e){
 			e.printStackTrace();
 			req.setAttribute("eMessage", "파일 등록 중 오류 발생");
-		}		
-	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doGet(req, resp);
+		}
 	}
 	
 	public WriteController() {

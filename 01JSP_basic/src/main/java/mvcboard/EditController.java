@@ -34,14 +34,12 @@ public class EditController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pageno = request.getParameter("pageno");
-		
 		BoardDao dao = new BoardDao();
 		BoardDto board = dao.selectPost(request.getParameter("idx"));
 		
 		request.setAttribute("board", board);
 		
-		request.getRequestDispatcher("../14MVCBoard/Edit.jsp?pageno=" + pageno).forward(request, response);
+		request.getRequestDispatcher("../14MVCBoard/Edit.jsp").forward(request, response);
 	}
 
 	/**
