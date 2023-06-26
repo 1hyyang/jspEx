@@ -28,6 +28,9 @@ public class DownloadController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		BoardDao dao = new BoardDao();
+		dao.updateVisitcount(request.getParameter("idx"));
+		
 		String ofile = request.getParameter("ofile");
 		String sfile = request.getParameter("sfile");
 		FileUtil.downloadFile(request, response, "c:/upload", ofile, sfile);

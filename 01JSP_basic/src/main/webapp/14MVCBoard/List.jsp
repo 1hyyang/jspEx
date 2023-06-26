@@ -48,7 +48,7 @@
 			<td>${ board.name }</td>
 			<td>${ board.visitcount }</td>
 			<td>${ board.postdate }</td>
-			<td><c:if test="${ not empty board.ofile }"><a href="../mvcboard/download.do?ofile=${ board.ofile }&sfile=${ board.sfile }">${ board.ofile }</a></c:if></td>
+			<td><c:if test="${ not empty board.ofile }"><a href="../mvcboard/download.do?idx=${ board.idx }&ofile=${ board.ofile }&sfile=${ board.sfile }">${ board.ofile }</a></c:if></td>
 		</tr>
 	</c:forEach>
 </c:if>
