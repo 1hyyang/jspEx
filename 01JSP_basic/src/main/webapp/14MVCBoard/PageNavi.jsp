@@ -7,6 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>페이지 블록</title>
+</head>
+<body>
 <script>
 	function go(pageno){
 		document.searchform.pageno.value = pageno;
